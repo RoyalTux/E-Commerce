@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace WebAPI.Models
+{
+    public enum StateView
+    {
+        Confirmed,
+        InProcess,
+        Declined,
+    }
+
+    public class OrderView
+    {
+        public OrderView()
+        {
+            this.Items = new List<ProductView>();
+        }
+
+        public int OrderId { get; set; }
+
+        [Required]
+        public DateTime Time { get; set; }
+
+        public double TimeInMilliseconds => this.Time.Subtract(new DateTime(1970, 1, 1)).Milliseconds;
+
+        [Required]
+        public double Price { get; set; }
+
+        [Required]
+        public StateView State { get; set; }
+
+        public ICollection<ProductView> Items { get; set; }
+    }
+}
