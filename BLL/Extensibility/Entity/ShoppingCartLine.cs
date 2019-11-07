@@ -6,7 +6,7 @@ namespace BLL.Extensibility.Entity
     {
         public int Id { get; set; }
 
-        public ProductDto Item { get; set; }
+        public ProductDto Product { get; set; }
 
         public int Quantity { get; set; }
     }

@@ -7,9 +7,9 @@ using DLL.Extensibility.Repository;
 // ReSharper disable ReplaceWithSingleCallToFirstOrDefault
 namespace DLL.Repository
 {
-    internal class ItemRepository : BaseRepository<Product>, IItemRepository
+    internal class ProductRepository : BaseRepository<Product>, IProductRepository
     {
-        public ItemRepository(IShopDbContext context, IMapper mapper)
+        public ProductRepository(IShopDbContext context, IMapper mapper)
             : base(context, mapper)
         {
         }

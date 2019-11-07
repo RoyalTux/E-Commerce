@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using DLL.Extensibility;
 using DLL.Extensibility.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -18,7 +17,7 @@ namespace DLL.Context
 
         public IDbSet<Category> Categories { get; set; }
 
-        public IDbSet<Product> Items { get; set; }
+        public IDbSet<Product> Product { get; set; }
 
         public IDbSet<Order> Orders { get; set; }
 

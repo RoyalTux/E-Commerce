@@ -7,13 +7,13 @@ namespace DLL.Entities
     {
         public Category()
         {
-            this.Items = new List<Product>();
+            this.Products = new List<Product>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<Product> Items { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

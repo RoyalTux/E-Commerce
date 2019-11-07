@@ -4,9 +4,9 @@ namespace BLL.Extensibility
 {
     public interface IUserService
     {
-        bool AddItem(ProductDto item, int quantity, IShoppingCart lineCollection);
+        bool AddProduct(ProductDto item, int quantity, IShoppingCart lineCollection);
 
-        bool RemoveItem(ProductDto item, IShoppingCart lineCollection);
+        bool RemoveProduct(ProductDto item, IShoppingCart lineCollection);
 
         bool Clear(IShoppingCart lineCollection);
 

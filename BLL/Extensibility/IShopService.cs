@@ -7,7 +7,7 @@ namespace BLL.Extensibility
     {
         ICategoryRepository Categories { get; }
 
-        IItemRepository Products { get; }
+        IProductRepository Products { get; }
 
         IOrderRepository Orders { get; }
 

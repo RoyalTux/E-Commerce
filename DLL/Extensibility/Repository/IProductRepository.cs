@@ -2,7 +2,7 @@
 
 namespace DLL.Extensibility.Repository
 {
-    public interface IItemRepository : IBaseRepository<Product>
+    public interface IProductRepository : IBaseRepository<Product>
     {
         Product GetById(int id);
     }

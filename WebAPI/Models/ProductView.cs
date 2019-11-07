@@ -10,16 +10,16 @@ namespace WebAPI.Models
             this.Orders = new List<OrderView>();
         }
 
-        public int ItemId { get; set; }
+        public int ProductId { get; set; }
 
         [Required]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Invalid product name length")]
-        public string ItemName { get; set; }
+        [StringLength(256, MinimumLength = 5, ErrorMessage = "Invalid product name length")]
+        public string ProductName { get; set; }
 
-        public string ItemPhotoPath { get; set; }
+        public string ProductPhotoPath { get; set; }
 
         [Required]
-        [StringLength(250, MinimumLength = 30, ErrorMessage = "Invalid product description length")]
+        [StringLength(256, MinimumLength = 30, ErrorMessage = "Invalid product description length")]
         public string Description { get; set; }
 
         [Required]

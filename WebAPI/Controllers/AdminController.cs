@@ -93,13 +93,13 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("items/add")]
-        public IHttpActionResult AddItem([FromBody]ProductView itemView)
+        [Route("products/add")]
+        public IHttpActionResult AddProduct([FromBody]ProductView productView)
         {
             if (this.ModelState.IsValid)
             {
-                var item = this._mapper.Map<ProductDto>(itemView);
-                var result = this._adminService.AddProduct(item);
+                var product = this._mapper.Map<ProductDto>(productView);
+                var result = this._adminService.AddProduct(product);
 
                 if (result)
                 {
@@ -115,14 +115,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("items/edit")]
+        [Route("products/edit")]
         [Authorize(Roles = "manager")]
-        public IHttpActionResult UpdateItem([FromBody]ProductView item)
+        public IHttpActionResult UpdateProduct([FromBody]ProductView productView)
         {
             if (this.ModelState.IsValid)
             {
-                var items = this._mapper.Map<ProductDto>(item);
-                var result = this._adminService.UpdateProduct(items);
+                var product = this._mapper.Map<ProductDto>(productView);
+                var result = this._adminService.UpdateProduct(product);
 
                 if (result)
                 {
@@ -138,8 +138,8 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("items/delete/{id}")]
-        public IHttpActionResult DeleteItem(int id)
+        [Route("products/delete/{id}")]
+        public IHttpActionResult DeleteProduct(int id)
         {
             var result = this._adminService.RemoveProduct(id);
 
@@ -152,18 +152,18 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("items/get/{id}")]
-        public IHttpActionResult GetItem(int id)
+        [Route("products/get/{id}")]
+        public IHttpActionResult GetProduct(int id)
         {
-            var item = this._adminService.GetProduct(id);
+            var product = this._adminService.GetProduct(id);
 
-            if (item == null)
+            if (product == null)
             {
                 return this.NotFound();
             }
 
-            var items = this._mapper.Map<ProductView>(item);
-            return this.Ok(items);
+            var products = this._mapper.Map<ProductView>(product);
+            return this.Ok(products);
         }
     }
 }

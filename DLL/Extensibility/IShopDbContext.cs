@@ -11,7 +11,7 @@ namespace DLL.Extensibility
 
         IDbSet<Category> Categories { get; set; }
 
-        IDbSet<Product> Items { get; set; }
+        IDbSet<Product> Product { get; set; }
 
         IDbSet<Order> Orders { get; set; }
 

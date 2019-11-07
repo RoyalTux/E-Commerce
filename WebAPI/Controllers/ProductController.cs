@@ -9,7 +9,7 @@ using WebAPI.Models;
 // ReSharper disable PossibleMultipleEnumeration
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/output")] // переименовать на product
+    [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
         private readonly IProductService _outputService; // переименовать
@@ -26,23 +26,23 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("items/get/{id}")]
-        public IHttpActionResult GetItem(int id)
+        [Route("get/{id}")]
+        public IHttpActionResult GetProduct(int id)
         {
-            var item = this._outputService.GetProduct(id);
-            if (item == null)
+            var product = this._outputService.GetProduct(id);
+            if (product == null)
             {
                 return this.NotFound();
             }
 
-            var items = this._mapper.Map<ProductView>(item);
+            var products = this._mapper.Map<ProductView>(product);
 
-            return this.Ok(items);
+            return this.Ok(products);
         }
 
         [HttpGet]
         [Route("pagination")]
-        public IHttpActionResult PagingItemsList([FromUri]PaginationParams parameters)
+        public IHttpActionResult PagingProductsList([FromUri]PaginationParams parameters)
         {
             if (!this.ModelState.IsValid)
             {
@@ -52,21 +52,21 @@ namespace WebAPI.Controllers
             var page = parameters.CurrentPage;
             var pageSize = parameters.PageSize;
 
-            var items = this._outputService.GetProductsWithPagination(page, pageSize);
+            var products = this._outputService.GetProductsWithPagination(page, pageSize);
 
-            if (!items.Any())
+            if (!products.Any())
             {
                 return this.NotFound();
             }
 
-            var model = new ItemsListViewModel()
+            var model = new ProductsListViewModel()
             {
-                Items = this._mapper.Map<IEnumerable<ProductView>>(items),
+                Products = this._mapper.Map<IEnumerable<ProductView>>(products),
                 PagingInfo = new PagingInfo()
                 {
                     CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = this._outputService.GetAllProducts().Count(),
+                    ProductsPerPage = pageSize,
+                    TotalProducts = this._outputService.GetAllProducts().Count(),
                 },
             };
 
@@ -74,80 +74,80 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("all_items")]
-        public IHttpActionResult GetAllItems()
+        [Route("allProducts")]
+        public IHttpActionResult GetAllProducts()
         {
-            var items = this._outputService.GetAllProducts();
+            var products = this._outputService.GetAllProducts();
 
-            if (!items.Any())
+            if (!products.Any())
             {
                 return this.NotFound();
             }
 
-            var item = this._mapper.Map<IEnumerable<ProductView>>(items);
+            var product = this._mapper.Map<IEnumerable<ProductView>>(products);
 
-            return this.Ok(item);
+            return this.Ok(product);
         }
 
         [HttpGet]
         [Route("search")]
         public IHttpActionResult Search([FromUri]string request)
         {
-            var searchItems = this._outputService.Search(request);
+            var searchProducts = this._outputService.Search(request);
 
-            if (!searchItems.Any())
+            if (!searchProducts.Any())
             {
                 return this.NotFound();
             }
 
-            var searchItem = this._mapper.Map<IEnumerable<ProductView>>(searchItems);
+            var searchProduct = this._mapper.Map<IEnumerable<ProductView>>(searchProducts);
 
-            return this.Ok(searchItem);
+            return this.Ok(searchProduct);
         }
 
         [HttpGet]
-        [Route("sort_by/{sortCriteria}")]
+        [Route("sortBy/{sortCriteria}")]
         public IHttpActionResult SortBy(SortCriteriaView sortCriteria = SortCriteriaView.Name)
         {
             var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedItems = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortBy(criteria));
+            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortBy(criteria));
 
-            if (!sortedItems.Any())
+            if (!sortedProducts.Any())
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(sortedItems);
+            return this.Ok(sortedProducts);
         }
 
         [HttpGet]
-        [Route("sort_by_descending/{sortCriteria}")]
+        [Route("sortByDescending/{sortCriteria}")]
         public IHttpActionResult SortByDescending(SortCriteriaView sortCriteria = SortCriteriaView.Name)
         {
             var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedItems = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortByDescending(criteria));
+            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortByDescending(criteria));
 
-            if (!sortedItems.Any())
+            if (!sortedProducts.Any())
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(sortedItems);
+            return this.Ok(sortedProducts);
         }
 
         [HttpGet]
-        [Route("filter_by_category/{id}")]
+        [Route("filterByCategory/{id}")]
         public IHttpActionResult FilterByCategory(int id)
         {
-            var items = this._outputService.FilterByCategory(id);
-            var filterItems = this._mapper.Map<IEnumerable<ProductView>>(items);
+            var products = this._outputService.FilterByCategory(id);
+            var filterProducts = this._mapper.Map<IEnumerable<ProductView>>(products);
 
-            if (!filterItems.Any())
+            if (!filterProducts.Any())
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(filterItems);
+            return this.Ok(filterProducts);
         }
     }
 }

@@ -109,7 +109,7 @@
 //		{
 //			try
 //			{
-//				var item = _mapper.Map<Item>(itemDto);
+//				var item = _mapper.Map<Product>(itemDto);
 //				_db.Products.Add(item);
 //				_db.SaveChanges();
 //			}
@@ -124,7 +124,7 @@
 //		{
 //			try
 //			{
-//				var item = _mapper.Map<Item>(itemDto);
+//				var item = _mapper.Map<Product>(itemDto);
 //				_db.Products.Edit(item);
 //				_db.SaveChanges();
 //			}

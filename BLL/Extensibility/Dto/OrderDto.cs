@@ -14,7 +14,7 @@ namespace BLL.Extensibility.Dto
     {
         public OrderDto()
         {
-            this.Items = new List<ProductDto>();
+            this.Products = new List<ProductDto>();
         }
 
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace BLL.Extensibility.Dto
 
         public StateDto State { get; set; }
 
-        public ICollection<ProductDto> Items { get; set; }
+        public ICollection<ProductDto> Products { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace DLL.Context
                 .IsRequired();
 
             modelBuilder.Entity<Order>()
-                .HasMany(p => p.Items);
+                .HasMany(p => p.Products);
         }
     }
 }

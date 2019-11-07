@@ -2,9 +2,9 @@
 
 namespace WebAPI.Models
 {
-    public class ItemsListViewModel
+    public class ProductsListViewModel
     {
-        public IEnumerable<ProductView> Items { get; set; }
+        public IEnumerable<ProductView> Products { get; set; }
 
         public PagingInfo PagingInfo { get; set; }
     }

@@ -5,7 +5,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/CartPanel")] // добавить упоминание о юзере в роут
+    [RoutePrefix("api/user/cartPanel")]
     public class UserController : ApiController
     {
         private readonly IUserService _user;
@@ -22,16 +22,16 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("addItem/{id}")]
-        public IHttpActionResult AddItem(int id)
+        [Route("addProduct/{id}")]
+        public IHttpActionResult AddProduct(int id)
         {
-            var item = this._outputService.GetProduct(id);
-            if (item == null)
+            var product = this._outputService.GetProduct(id);
+            if (product == null)
             {
                 return this.BadRequest();
             }
 
-            var result = this._user.AddItem(item, 1, this._iCart);
+            var result = this._user.AddProduct(product, 1, this._iCart);
             if (result)
             {
                 return this.Ok();
@@ -41,16 +41,16 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("removeItem/{id}")]
-        public IHttpActionResult RemoveItem(int id)
+        [Route("removeProduct/{id}")]
+        public IHttpActionResult RemoveProduct(int id)
         {
-            var item = this._outputService.GetProduct(id);
-            if (item == null)
+            var product = this._outputService.GetProduct(id);
+            if (product == null)
             {
                 return this.BadRequest();
             }
 
-            var result = this._user.RemoveItem(item, this._iCart);
+            var result = this._user.RemoveProduct(product, this._iCart);
             if (result)
             {
                 return this.Ok();
@@ -73,7 +73,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/OrderPanel/addOrder")]
+        [Route("~/api/user/orderPanel/addOrder")]
         public IHttpActionResult MakeOrder()
         {
             var order = this._user.MakeOrder(this._iCart);

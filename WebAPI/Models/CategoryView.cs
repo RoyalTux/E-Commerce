@@ -7,15 +7,15 @@ namespace WebAPI.Models
     {
         public CategoryView()
         {
-            this.Items = new List<ProductView>();
+            this.Products = new List<ProductView>();
         }
 
         public int CategoryId { get; set; }
 
         [Required]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Invalid category name length")]
+        [StringLength(256, MinimumLength = 5, ErrorMessage = "Invalid category name length")]
         public string CategoryName { get; set; }
 
-        public ICollection<ProductView> Items { get; set; }
+        public ICollection<ProductView> Products { get; set; }
     }
 }

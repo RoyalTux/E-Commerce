@@ -6,7 +6,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/ManagerPanel/orders")]
+    [RoutePrefix("api/manager/orders")]
     [Authorize(Roles = "manager")]
     public class ManagerController : ApiController
     {

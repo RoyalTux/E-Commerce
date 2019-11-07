@@ -231,7 +231,7 @@
     <Compile Include="Infrastructure\WebApiNinjectModule.cs" />
     <Compile Include="Models\CategoryView.cs" />
     <Compile Include="Models\IShoppingCartView.cs" />
-    <Compile Include="Models\ItemsListViewModel.cs" />
+    <Compile Include="Models\ProductsListViewModel.cs" />
     <Compile Include="Models\ProductView.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrderView.cs" />

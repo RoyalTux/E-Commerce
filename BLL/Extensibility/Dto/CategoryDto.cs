@@ -6,13 +6,13 @@ namespace BLL.Extensibility.Dto
     {
         public CategoryDto()
         {
-            this.Items = new List<ProductDto>();
+            this.Products = new List<ProductDto>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<ProductDto> Items { get; set; }
+        public ICollection<ProductDto> Products { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/Account")]
+    [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
         private AccountController()
@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         private static IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
 
         [HttpGet]
-        [Route("Login")]
+        [Route("login")]
         public IHttpActionResult Login(string email, string password)
         {
             var model = new LoginModel() { Email = email, Password = password };
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("Logout")]
+        [Route("logout")]
         public IHttpActionResult Logout()
         {
             AuthenticationManager.SignOut();
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("Register")]
+        [Route("register")]
         public IHttpActionResult Register(string name, string address, string password, string confirmPassword, string email)
         {
             var model = new RegistrationModel()

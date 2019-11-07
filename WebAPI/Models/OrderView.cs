@@ -15,7 +15,7 @@ namespace WebAPI.Models
     {
         public OrderView()
         {
-            this.Items = new List<ProductView>();
+            this.Products = new List<ProductView>();
         }
 
         public int OrderId { get; set; }
@@ -31,6 +31,6 @@ namespace WebAPI.Models
         [Required]
         public StateView State { get; set; }
 
-        public ICollection<ProductView> Items { get; set; }
+        public ICollection<ProductView> Products { get; set; }
     }
 }
