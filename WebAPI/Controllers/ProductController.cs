@@ -9,10 +9,10 @@ using WebAPI.Models;
 // ReSharper disable PossibleMultipleEnumeration
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/output")]
+    [RoutePrefix("api/output")] // переименовать на product
     public class ProductController : ApiController
     {
-        private readonly IProductService _outputService;
+        private readonly IProductService _outputService; // переименовать
         private readonly IMapper _mapper;
 
         public ProductController()

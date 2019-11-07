@@ -5,7 +5,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [RoutePrefix("api/CartPanel")]
+    [RoutePrefix("api/CartPanel")] // добавить упоминание о юзере в роут
     public class UserController : ApiController
     {
         private readonly IUserService _user;

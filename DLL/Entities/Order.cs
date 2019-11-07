@@ -8,7 +8,7 @@ namespace DLL.Entities
         Confirmed,
         InProcess,
         Declined,
-    }
+    } // вынести в отдельный файл
 
     internal class Order
     {

@@ -15,7 +15,8 @@ namespace WebAPI.Controllers
         {
         }
 
-        private static IAccountService AccountService => HttpContext.Current.GetOwinContext().GetUserManager<IAccountService>();
+        private static IAccountService AccountService => HttpContext.Current.GetOwinContext().GetUserManager<IAccountService>(); // нельзя замокать и статик нельзя
+        // почитать про разницу стрелочной ф-ии и get; set;
 
         private static IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
 

@@ -85,6 +85,7 @@
     <Compile Include="Context\ProductBuilder.cs" />
     <Compile Include="Context\UserProfileBuilder.cs" />
     <Compile Include="Context\ShopDbContext.cs" />
+    <Compile Include="Extensibility\DatabaseSampleDataInitializer.cs" />
     <Compile Include="DLLNinjectModule.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -131,6 +132,12 @@
     <EmbeddedResource Include="Migrations\201911070956444_initial1.resx">
       <DependentUpon>201911070956444_initial1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Ecommerce.Core.csproj">
+      <Project>{b579d992-5605-489b-8240-fd3bbc910595}</Project>
+      <Name>Ecommerce.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

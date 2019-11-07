@@ -11,6 +11,7 @@ namespace DLL.Context
         public ShopDbContext()
             : base("name=E-CommerceDbContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public IDbSet<UserProfile> UserProfiles { get; set; }
@@ -23,11 +24,6 @@ namespace DLL.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            if (modelBuilder == null)
-            {
-                throw new ArgumentNullException(nameof(modelBuilder));
-            }
-
             CategoryBuilder.BuildCategory(modelBuilder);
             OrderBuilder.BuildOrder(modelBuilder);
             ProductBuilder.BuildProduct(modelBuilder);

@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("edit")]
+        [Route("edit")] // убрать если один (почитать про rest конвенции урлов роутов)
         public IHttpActionResult UpdateOrder([FromBody]OrderView order)
         {
             if (this.ModelState.IsValid)

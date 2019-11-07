@@ -1,4 +1,5 @@
-﻿using DLL.Context;
+﻿using Core.Extensibility;
+using DLL.Context;
 using DLL.Extensibility;
 using Ninject.Extensions.Conventions;
 using Ninject.Modules;
@@ -20,6 +21,7 @@ namespace DLL
                 .BindAllInterfaces());
 
             this.Bind<IShopDbContext>().To<ShopDbContext>().InRequestScope();
+            this.Bind<IInitializer>().To<DatabaseSampleDataInitializer>();
         }
     }
 }
