@@ -12,16 +12,16 @@ namespace WebAPI.Controllers
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
-        private readonly IProductService _outputService; // переименовать
+        private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
         public ProductController()
         {
         }
 
-        public ProductController(IProductService outputService, IMapper mapper)
+        public ProductController(IProductService productService, IMapper mapper)
         {
-            this._outputService = outputService;
+            this._productService = productService;
             this._mapper = mapper;
         }
 
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         [Route("get/{id}")]
         public IHttpActionResult GetProduct(int id)
         {
-            var product = this._outputService.GetProduct(id);
+            var product = this._productService.GetProduct(id);
             if (product == null)
             {
                 return this.NotFound();
@@ -52,7 +52,7 @@ namespace WebAPI.Controllers
             var page = parameters.CurrentPage;
             var pageSize = parameters.PageSize;
 
-            var products = this._outputService.GetProductsWithPagination(page, pageSize);
+            var products = this._productService.GetProductsWithPagination(page, pageSize);
 
             if (!products.Any())
             {
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
                 {
                     CurrentPage = page,
                     ProductsPerPage = pageSize,
-                    TotalProducts = this._outputService.GetAllProducts().Count(),
+                    TotalProducts = this._productService.GetAllProducts().Count(),
                 },
             };
 
@@ -77,7 +77,7 @@ namespace WebAPI.Controllers
         [Route("allProducts")]
         public IHttpActionResult GetAllProducts()
         {
-            var products = this._outputService.GetAllProducts();
+            var products = this._productService.GetAllProducts();
 
             if (!products.Any())
             {
@@ -93,7 +93,7 @@ namespace WebAPI.Controllers
         [Route("search")]
         public IHttpActionResult Search([FromUri]string request)
         {
-            var searchProducts = this._outputService.Search(request);
+            var searchProducts = this._productService.Search(request);
 
             if (!searchProducts.Any())
             {
@@ -110,7 +110,7 @@ namespace WebAPI.Controllers
         public IHttpActionResult SortBy(SortCriteriaView sortCriteria = SortCriteriaView.Name)
         {
             var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortBy(criteria));
+            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._productService.SortBy(criteria));
 
             if (!sortedProducts.Any())
             {
@@ -125,7 +125,7 @@ namespace WebAPI.Controllers
         public IHttpActionResult SortByDescending(SortCriteriaView sortCriteria = SortCriteriaView.Name)
         {
             var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._outputService.SortByDescending(criteria));
+            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._productService.SortByDescending(criteria));
 
             if (!sortedProducts.Any())
             {
@@ -139,7 +139,7 @@ namespace WebAPI.Controllers
         [Route("filterByCategory/{id}")]
         public IHttpActionResult FilterByCategory(int id)
         {
-            var products = this._outputService.FilterByCategory(id);
+            var products = this._productService.FilterByCategory(id);
             var filterProducts = this._mapper.Map<IEnumerable<ProductView>>(products);
 
             if (!filterProducts.Any())

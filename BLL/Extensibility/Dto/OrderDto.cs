@@ -3,13 +3,6 @@ using System.Collections.Generic;
 
 namespace BLL.Extensibility.Dto
 {
-    public enum StateDto
-    {
-        Confirmed,
-        InProcess,
-        Declined,
-    }
-
     public class OrderDto
     {
         public OrderDto()

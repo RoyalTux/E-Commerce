@@ -8,13 +8,13 @@ namespace DLL.Extensibility.Entities
     {
         public Category()
         {
-            this.Products = new List<Product>();
+            this.SubCategories = new List<SubCategory>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<SubCategory> SubCategories { get; set; }
     }
 }

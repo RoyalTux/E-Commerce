@@ -32,64 +32,64 @@ namespace BLL.Services
 
         public IEnumerable<ProductDto> GetProductsWithPagination(int page, int pageSize)
         {
-            var itemsUoW = this._db.Products.GetAll()
-                     .OrderBy(item => item.Id)
+            var products = this._db.Products.GetAll()
+                     .OrderBy(product => product.Id)
                      .Skip((page - 1) * pageSize)
                      .Take(pageSize);
 
-            return this._mapper.Map<IEnumerable<ProductDto>>(itemsUoW);
+            return this._mapper.Map<IEnumerable<ProductDto>>(products);
         }
 
         public IEnumerable<ProductDto> Search(string request)
         {
-            var allItems = this.GetAllProducts();
+            var allProducts = this.GetAllProducts();
 
-            return allItems.Where(item => item.Name.ToLower().Contains(request.ToLower()));
+            return allProducts.Where(product => product.Name.ToLower().Contains(request.ToLower()));
         }
 
         public IEnumerable<ProductDto> SortBy(BLLSortCriteria sortParam)
         {
-            var allItems = this.GetAllProducts();
+            var allProducts = this.GetAllProducts();
 
             IEnumerable<ProductDto> res = sortParam == BLLSortCriteria.Name
-                ? allItems.OrderBy(x => x.Name)
-                : allItems.OrderBy(x => x.Price);
+                ? allProducts.OrderBy(x => x.Name)
+                : allProducts.OrderBy(x => x.Price);
 
             return res;
         }
 
         public IEnumerable<ProductDto> SortByDescending(BLLSortCriteria sortParam)
         {
-            var allItems = this.GetAllProducts();
+            var allProducts = this.GetAllProducts();
 
             IEnumerable<ProductDto> res = sortParam == BLLSortCriteria.Name
-                ? allItems.OrderByDescending(x => x.Name)
-                : allItems.OrderByDescending(x => x.Price);
+                ? allProducts.OrderByDescending(x => x.Name)
+                : allProducts.OrderByDescending(x => x.Price);
 
             return res;
         }
 
-        public IEnumerable<ProductDto> FilterByCategory(int categoryId)
+        public IEnumerable<ProductDto> FilterByCategory(int subCategoryId)
         {
-            var allItems = this._db.Products.GetAll().Where(item => item.CategoryId == categoryId);
-            var items = this._mapper.Map<IEnumerable<ProductDto>>(allItems);
+            var allProducts = this._db.Products.GetAll().Where(product => product.SubCategoryId == subCategoryId);
+            var products = this._mapper.Map<IEnumerable<ProductDto>>(allProducts);
 
-            return items;
+            return products;
         }
 
-        private static IEnumerable<ProductDto> FilterByPrice(IEnumerable<ProductDto> items, int minPrice, int maxPrice)
+        private static IEnumerable<ProductDto> FilterByPrice(IEnumerable<ProductDto> products, int minPrice, int maxPrice)
         {
-            return items.Where(item => item.Price >= minPrice && item.Price <= maxPrice);
+            return products.Where(product => product.Price >= minPrice && product.Price <= maxPrice);
         }
 
-        private static int GetDefaultMinPrice(IEnumerable<ProductDto> items)
+        private static int GetDefaultMinPrice(IEnumerable<ProductDto> products)
         {
-            return (int)items.Min(x => x.Price);
+            return (int)products.Min(x => x.Price);
         }
 
-        private static int GetDefaultMaxPrice(IEnumerable<ProductDto> items)
+        private static int GetDefaultMaxPrice(IEnumerable<ProductDto> products)
         {
-            return (int)items.Max(x => x.Price);
+            return (int)products.Max(x => x.Price);
         }
     }
 }

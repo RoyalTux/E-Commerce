@@ -17,7 +17,7 @@ namespace DLL.Repository
 
         public Category GetById(int id)
         {
-            var entity = this.Mapper.Map<Category>(this.Set.Include(x => x.Products).Where(x => x.Id == id).FirstOrDefault());
+            var entity = this.Mapper.Map<Category>(this.Set.Include(x => x.SubCategories).Where(x => x.Id == id).FirstOrDefault());
             return entity;
         }
     }

@@ -11,11 +11,11 @@ namespace WebAPI.Controllers
         private readonly IUserService _user;
         private readonly IMapper _mapper;
         private readonly IShoppingCart _iCart;
-        private readonly IProductService _outputService;
+        private readonly IProductService _productService;
 
-        public UserController(IProductService outputService, IUserService user, IMapper mapper, IShoppingCart iCart)
+        public UserController(IProductService productService, IUserService user, IMapper mapper, IShoppingCart iCart)
         {
-            this._outputService = outputService;
+            this._productService = productService;
             this._user = user;
             this._mapper = mapper;
             this._iCart = iCart;
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         [Route("addProduct/{id}")]
         public IHttpActionResult AddProduct(int id)
         {
-            var product = this._outputService.GetProduct(id);
+            var product = this._productService.GetProduct(id);
             if (product == null)
             {
                 return this.BadRequest();
@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
         [Route("removeProduct/{id}")]
         public IHttpActionResult RemoveProduct(int id)
         {
-            var product = this._outputService.GetProduct(id);
+            var product = this._productService.GetProduct(id);
             if (product == null)
             {
                 return this.BadRequest();

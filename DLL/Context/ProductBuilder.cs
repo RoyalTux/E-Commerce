@@ -33,6 +33,23 @@ namespace DLL.Context
             modelBuilder.Entity<Product>()
                 .Property(x => x.Quantity)
                 .IsRequired();
+
+            modelBuilder.Entity<Product>()
+                .Property(x => x.Album)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<Product>()
+                .Property(x => x.Artist)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<Product>()
+                .Property(x => x.TrackDuration)
+                .IsRequired();
+
+            // modelBuilder.Entity<Product>()
+            //    .HasRequired(x => x.SubCategory);
         }
     }
 }

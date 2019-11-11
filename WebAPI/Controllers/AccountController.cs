@@ -15,10 +15,9 @@ namespace WebAPI.Controllers
         {
         }
 
-        private static IAccountService AccountService => HttpContext.Current.GetOwinContext().GetUserManager<IAccountService>(); // нельзя замокать и статик нельзя
-        // почитать про разницу стрелочной ф-ии и get; set;
+        private IAccountService AccountService => HttpContext.Current.GetOwinContext().GetUserManager<IAccountService>();
 
-        private static IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
+        private IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
 
         [HttpGet]
         [Route("login")]
@@ -31,15 +30,15 @@ namespace WebAPI.Controllers
             }
 
             var userDto = new UserDto { Email = model.Email, Password = model.Password };
-            var claim = AccountService.Authenticate(userDto);
+            var claim = this.AccountService.Authenticate(userDto);
             if (claim == null)
             {
                 return this.Ok("Wrong login or password.");
             }
             else
             {
-                AuthenticationManager.SignOut();
-                AuthenticationManager.SignIn(
+                this.AuthenticationManager.SignOut();
+                this.AuthenticationManager.SignIn(
                     new AuthenticationProperties
                 {
                     IsPersistent = true,
@@ -53,7 +52,7 @@ namespace WebAPI.Controllers
         [Route("logout")]
         public IHttpActionResult Logout()
         {
-            AuthenticationManager.SignOut();
+            this.AuthenticationManager.SignOut();
             return this.Ok();
         }
 
@@ -84,7 +83,7 @@ namespace WebAPI.Controllers
                 Name = model.Name,
                 Role = "user",
             };
-            var operationDetails = AccountService.Create(userDto);
+            var operationDetails = this.AccountService.Create(userDto);
 
             return this.Ok(operationDetails);
         }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using AutoMapper;
 using DLL.Extensibility;
 using DLL.Extensibility.Entities;
@@ -16,7 +17,7 @@ namespace DLL.Repository
 
         public Order GetById(int id)
         {
-            var entity = this.Mapper.Map<Order>(this.Set.Where(x => x.Id == id).FirstOrDefault());
+            var entity = this.Mapper.Map<Order>(this.Set.Include(x => x.Products).Where(x => x.Id == id).FirstOrDefault());
 
             return entity;
         }

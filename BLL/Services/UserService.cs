@@ -19,15 +19,15 @@ namespace BLL.Services
             this._mapper = mapper;
         }
 
-        public bool AddProduct(ProductDto item, int quantity, IShoppingCart lineCollection)
+        public bool AddProduct(ProductDto product, int quantity, IShoppingCart lineCollection)
         {
             try
             {
-                if (item != null)
+                if (product != null)
                 {
                     lineCollection.Lines.Add(new ShoppingCartLine
                     {
-                        Product = this._mapper.Map<ProductDto>(this._db.Products.GetById(item.Id)),
+                        Product = this._mapper.Map<ProductDto>(this._db.Products.GetById(product.Id)),
                         Quantity = quantity,
                     });
                 }
@@ -40,11 +40,11 @@ namespace BLL.Services
             return true;
         }
 
-        public bool RemoveProduct(ProductDto item, IShoppingCart lineCollection)
+        public bool RemoveProduct(ProductDto product, IShoppingCart lineCollection)
         {
             try
             {
-                lineCollection.Lines.RemoveAll(l => l.Product.Id == item.Id);
+                lineCollection.Lines.RemoveAll(l => l.Product.Id == product.Id);
             }
             catch (Exception)
             {
@@ -70,7 +70,7 @@ namespace BLL.Services
 
         public IShoppingCart ComposeCart(IShoppingCart lineCollection)
         {
-            decimal cartPrice = lineCollection.Lines.Sum(item => item.Product.Price);
+            decimal cartPrice = lineCollection.Lines.Sum(product => product.Product.Price);
 
             var cart = new ShoppingCart
             {
@@ -83,12 +83,12 @@ namespace BLL.Services
 
         public OrderDto MakeOrder(IShoppingCart cart)
         {
-            var items = cart.Lines.Select(item => item.Product).ToList();
+            var products = cart.Lines.Select(product => product.Product).ToList();
             var order = new OrderDto
             {
-                Products = items,
+                Products = products,
                 Time = System.DateTime.Now,
-                Price = items.Sum(x => x.Price),
+                Price = products.Sum(x => x.Price),
                 State = StateDto.InProcess,
             };
 

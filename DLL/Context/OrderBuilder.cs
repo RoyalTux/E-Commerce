@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Order = DLL.Extensibility.Entities.Order;
+using DLL.Extensibility.Entities;
 
 namespace DLL.Context
 {

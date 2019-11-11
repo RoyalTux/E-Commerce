@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using UserProfile = DLL.Extensibility.Entities.UserProfile;
+using DLL.Extensibility.Entities;
 
 namespace DLL.Context
 {

@@ -17,6 +17,8 @@ namespace DLL.Context
 
         public IDbSet<Category> Categories { get; set; }
 
+        public DbSet<SubCategory> Subcategories { get; set; }
+
         public IDbSet<Product> Product { get; set; }
 
         public IDbSet<Order> Orders { get; set; }
@@ -24,6 +26,7 @@ namespace DLL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             CategoryBuilder.BuildCategory(modelBuilder);
+            SubCategoryBuilder.BuildSubCategory(modelBuilder);
             OrderBuilder.BuildOrder(modelBuilder);
             ProductBuilder.BuildProduct(modelBuilder);
             UserProfileBuilder.BuildUserProfile(modelBuilder);

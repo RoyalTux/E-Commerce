@@ -3,13 +3,6 @@ using System.Collections.Generic;
 
 namespace DLL.Entities
 {
-    public enum State
-    {
-        Confirmed,
-        InProcess,
-        Declined,
-    } // вынести в отдельный файл
-
     internal class Order
     {
         public Order()
@@ -23,7 +16,7 @@ namespace DLL.Entities
 
         public decimal Price { get; set; }
 
-        public State State { get; set; }
+        public OrderState State { get; set; }
 
         public ICollection<Product> Products { get; set; }
     }

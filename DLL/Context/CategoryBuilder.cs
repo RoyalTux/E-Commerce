@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Category = DLL.Extensibility.Entities.Category;
+using DLL.Extensibility.Entities;
 
 namespace DLL.Context
 {
@@ -14,6 +14,11 @@ namespace DLL.Context
                 .Property(x => x.Name)
                 .HasMaxLength(256)
                 .IsRequired();
+
+            modelBuilder.Entity<Category>()
+                .HasMany(x => x.SubCategories)
+                .WithRequired(x => x.Category)
+                .HasForeignKey(x => x.CategoryId);
         }
     }
 }

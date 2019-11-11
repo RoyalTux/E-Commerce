@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿// ReSharper disable once UnusedMember.Global
 
-// ReSharper disable once UnusedMember.Global
+using System.Collections.Generic;
+
 namespace DLL.Entities
 {
     internal class Category
     {
         public Category()
         {
-            this.Products = new List<Product>();
+            this.SubCategories = new List<SubCategory>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<SubCategory> SubCategories { get; set; }
     }
 }

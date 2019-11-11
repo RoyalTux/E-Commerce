@@ -3,6 +3,7 @@ using System.Data.Entity;
 using DLL.Context;
 using DLL.Entities;
 
+// ReSharper disable CollectionNeverQueried.Local
 namespace DLL.Extensibility
 {
     public class ShopDbInitializer : CreateDatabaseIfNotExists<ShopDbContext>

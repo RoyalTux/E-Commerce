@@ -1,177 +1,134 @@
-﻿//using System;
-//using AutoMapper;
-//using BLL.Dto;
-//using BLL.Extensibility;
-//using DLL.Extensibility.Entities;
+﻿using System;
+using AutoMapper;
+using BLL.Extensibility;
+using BLL.Extensibility.Dto;
+using DLL.Extensibility.Entities;
 
-//namespace BLL.Services
-//{
-//	internal class AdminService : IAdminService
-//	{
-//		private readonly IAccountServiceHelper _db;
-//		private readonly IMapper _mapper;
+namespace BLL.Services
+{
+    internal class AdminService : IAdminService
+    {
+        private readonly IShopService _db;
+        private readonly IMapper _mapper;
 
-//		public AdminService(IAccountServiceHelper db, IMapper mapper)
-//		{
-//			_db = db;
-//			_mapper = mapper;
-//		}
+        public AdminService(IShopService db, IMapper mapper)
+        {
+            this._db = db;
+            this._mapper = mapper;
+        }
 
-//		public bool AddCategory(CategoryDto categoryDto)
-//		{
-//			try
-//			{
-//				var category = _mapper.Map<Category>(categoryDto);
-//				_db.Categories.Add(category);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+        public bool AddCategory(CategoryDto categoryDto)
+        {
+            try
+            {
+                var category = this._mapper.Map<Category>(categoryDto);
+                this._db.Categories.Add(category);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public bool UpdateCategory(CategoryDto categoryDto)
-//		{
-//			try
-//			{
-//				var category = _mapper.Map<Category>(categoryDto);
-//				_db.Categories.Edit(category);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+            return true;
+        }
 
-//		public bool RemoveCategory(int id)
-//		{
-//			try
-//			{
-//				_db.Categories.DeleteById(id);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+        public bool UpdateCategory(CategoryDto categoryDto)
+        {
+            try
+            {
+                var category = this._mapper.Map<Category>(categoryDto);
+                this._db.Categories.Edit(category);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public bool AddItemCharacteristic(ItemCharacteristicsDto itemCharacteristicsDto)
-//		{
-//			try
-//			{
-//				var itemCharacteristic = _mapper.Map<ItemCharacteristic>(itemCharacteristicsDto);
-//				_db.Characteristics.Add(itemCharacteristic);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+            return true;
+        }
 
-//		public bool UpdateItemCharacteristic(ItemCharacteristicsDto itemCharacteristicsDto)
-//		{
-//			try
-//			{
-//				var itemCharacteristic = _mapper.Map<ItemCharacteristic>(itemCharacteristicsDto);
-//				_db.Characteristics.Add(itemCharacteristic);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+        public bool RemoveCategory(int id)
+        {
+            try
+            {
+                this._db.Categories.DeleteById(id);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public bool RemoveItemCharacteristic(int id)
-//		{
-//			try
-//			{
-//				_db.Characteristics.DeleteById(id);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+            return true;
+        }
 
-//		public bool AddProduct(ItemDto itemDto)
-//		{
-//			try
-//			{
-//				var item = _mapper.Map<Product>(itemDto);
-//				_db.Products.Add(item);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+        public bool AddProduct(ProductDto productDto)
+        {
+            try
+            {
+                var item = this._mapper.Map<Product>(productDto);
+                this._db.Products.Add(item);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public bool UpdateProduct(ItemDto itemDto)
-//		{
-//			try
-//			{
-//				var item = _mapper.Map<Product>(itemDto);
-//				_db.Products.Edit(item);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+            return true;
+        }
 
-//		public bool RemoveProduct(int id)
-//		{
-//			try
-//			{
-//				_db.Products.DeleteById(id);
-//				_db.SaveChanges();
-//			}
-//			catch (Exception)
-//			{
-//				return false;
-//			}
-//			return true;
-//		}
+        public bool UpdateProduct(ProductDto productDto)
+        {
+            try
+            {
+                var item = this._mapper.Map<Product>(productDto);
+                this._db.Products.Edit(item);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public CategoryDto GetCategory(int id)
-//		{
-//			return _mapper.Map<CategoryDto>(_db.Categories.GetById(id));
-//		}
+            return true;
+        }
 
-//		public ItemCharacteristicsDto GetItemCharacteristics(int id)
-//		{
-//			return _mapper.Map<ItemCharacteristicsDto>(_db.Characteristics.GetById(id));
-//		}
+        public bool RemoveProduct(int id)
+        {
+            try
+            {
+                this._db.Products.DeleteById(id);
+                this._db.Save();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
-//		public ItemDto GetProduct(int id)
-//		{
-//			return _mapper.Map<ItemDto>(_db.Products.GetById(id));
-//		}
+            return true;
+        }
 
-//		public OrderDto GetOrder(int id)
-//		{
-//			return _mapper.Map<OrderDto>(_db.Orders.GetById(id));
-//		}
+        public CategoryDto GetCategory(int id)
+        {
+            return this._mapper.Map<CategoryDto>(this._db.Categories.GetById(id));
+        }
 
-//		public void Dispose(bool disposing)
-//		{
-//			_db.Dispose();
-//		}
-//	}
-//}
+        public ProductDto GetProduct(int id)
+        {
+            return this._mapper.Map<ProductDto>(this._db.Products.GetById(id));
+        }
+
+        public OrderDto GetOrder(int id)
+        {
+            return this._mapper.Map<OrderDto>(this._db.Orders.GetById(id));
+        }
+
+        public void Dispose(bool disposing)
+        {
+            this._db.Dispose();
+        }
+    }
+}
