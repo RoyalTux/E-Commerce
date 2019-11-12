@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DLL.Extensibility.Entities;
 
 namespace BLL.Extensibility.Dto
 {
@@ -7,7 +8,7 @@ namespace BLL.Extensibility.Dto
     {
         public OrderDto()
         {
-            this.Products = new List<ProductDto>();
+            this.OrderLines = new List<OrderLine>();
         }
 
         public int Id { get; set; }
@@ -18,6 +19,10 @@ namespace BLL.Extensibility.Dto
 
         public StateDto State { get; set; }
 
-        public ICollection<ProductDto> Products { get; set; }
+        public int? OrderLineId { get; set; }
+
+        public List<ProductDto> Products { get; set; }
+
+        public ICollection<OrderLine> OrderLines { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DLL.Extensibility.Entities;
 
 namespace BLL.Extensibility.Dto
 {
@@ -6,13 +7,13 @@ namespace BLL.Extensibility.Dto
     {
         public CategoryDto()
         {
-            this.Products = new List<ProductDto>();
+            this.SubCategories = new List<SubCategory>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<ProductDto> Products { get; set; }
+        public ICollection<SubCategory> SubCategories { get; set; }
     }
 }

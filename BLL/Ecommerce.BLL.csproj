@@ -65,9 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensibility\Dto\CategoryDto.cs" />
+    <Compile Include="Extensibility\Dto\OrderLineDto.cs" />
     <Compile Include="Extensibility\Dto\ProductDto.cs" />
     <Compile Include="Extensibility\Dto\OrderDto.cs" />
     <Compile Include="Extensibility\Dto\StateDto.cs" />
+    <Compile Include="Extensibility\Dto\SubCategoryDto.cs" />
     <Compile Include="Extensibility\Dto\UserDto.cs" />
     <Compile Include="Entity\ShoppingCart.cs" />
     <Compile Include="Entity\ShoppingCartLine.cs" />

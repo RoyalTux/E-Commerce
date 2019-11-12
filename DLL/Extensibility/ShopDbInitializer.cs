@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using DLL.Context;
-using DLL.Entities;
+using DLL.Extensibility.Entities;
 
 // ReSharper disable CollectionNeverQueried.Local
+// ReSharper disable RedundantCommaInInitializer
+// ReSharper disable StringLiteralTypo
 namespace DLL.Extensibility
 {
     public class ShopDbInitializer : CreateDatabaseIfNotExists<ShopDbContext>
     {
-        protected override void Seed(ShopDbContext context)
+        public IList<Entities.UserProfile> SeedUserProfiles()
         {
-            IList<UserProfile> defaultStandards = new List<UserProfile>();
+            IList<UserProfile> profiles = new List<UserProfile>();
 
-            defaultStandards.Add(new UserProfile()
+            profiles.Add(new UserProfile()
             {
                 Email = "admin@gmail.com",
                 UserName = "admin@gmail.com",
@@ -22,7 +24,7 @@ namespace DLL.Extensibility
                 Role = "admin",
             });
 
-            defaultStandards.Add(new UserProfile()
+            profiles.Add(new UserProfile()
             {
                 Email = "manager@gmail.com",
                 UserName = "manager@gmail.com",
@@ -32,7 +34,7 @@ namespace DLL.Extensibility
                 Role = "manager",
             });
 
-            defaultStandards.Add(new UserProfile()
+            profiles.Add(new UserProfile()
             {
                 Email = "user@gmail.com",
                 UserName = "user@gmail.com",
@@ -41,6 +43,56 @@ namespace DLL.Extensibility
                 Address = "visnevaya 3c",
                 Role = "user",
             });
+
+            return profiles;
+        }
+
+        public IList<Product> SeedProducts()
+        {
+            IList<Product> products = new List<Product>();
+            products.Add(new Product()
+            {
+                Name = "DJ Mix Number 05",
+                Album = "Frankenthal (Pfalz) / Germany",
+                Artist = "Boris Brejcha ",
+                Description = "Original Mix",
+                PhotoPath = "https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg",
+                Price = 20,
+                Quantity = 3,
+                TrackDuration = 2.5,
+            });
+
+            products.Add(new Product()
+            {
+                Name = "DJ Mix Number 06",
+                Album = "Frankenthal (Pfalz) / Germany",
+                Artist = "Boris Brejcha ",
+                Description = "Original Mix",
+                PhotoPath = "https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg",
+                Price = 30,
+                Quantity = 2,
+                TrackDuration = 1.5,
+            });
+
+            products.Add(new Product()
+            {
+                Name = "DJ Mix Number 07",
+                Album = "Frankenthal (Pfalz) / Germany",
+                Artist = "Boris Brejcha ",
+                Description = "Original Mix",
+                PhotoPath = "https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg",
+                Price = 10,
+                Quantity = 4,
+                TrackDuration = 5.5,
+            });
+
+            return products;
+        }
+
+        protected override void Seed(ShopDbContext context)
+        {
+            this.SeedUserProfiles();
+            this.SeedProducts();
 
             base.Seed(context);
         }

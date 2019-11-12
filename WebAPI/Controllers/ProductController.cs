@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("get/{id}")]
+        [Route("{id}")]
         public IHttpActionResult GetProduct(int id)
         {
             var product = this._productService.GetProduct(id);

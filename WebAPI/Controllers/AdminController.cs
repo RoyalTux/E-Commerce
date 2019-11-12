@@ -64,7 +64,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("categories/delete/{id}")]
+        [Route("categories/{id}")]
         public IHttpActionResult DeleteCategory(int id)
         {
             var result = this._adminService.RemoveCategory(id);
@@ -78,7 +78,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("categories/get/{id}")]
+        [Route("categories/{id}")]
         public IHttpActionResult GetCategory(int id)
         {
             var category = this._adminService.GetCategory(id);
@@ -138,7 +138,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("products/delete/{id}")]
+        [Route("products/{id}")]
         public IHttpActionResult DeleteProduct(int id)
         {
             var result = this._adminService.RemoveProduct(id);
@@ -152,7 +152,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("products/get/{id}")]
+        [Route("products/{id}")]
         public IHttpActionResult GetProduct(int id)
         {
             var product = this._adminService.GetProduct(id);

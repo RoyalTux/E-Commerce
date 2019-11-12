@@ -1,6 +1,6 @@
 ﻿namespace DLL.Entities
 {
-    internal class UserProfile
+    public class UserProfile
     {
         public string Id { get; set; }
 

@@ -25,6 +25,9 @@ namespace DLL.Context
 
             modelBuilder.Entity<Order>()
                 .HasMany(p => p.Products);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(x => x.OrderLines);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace DLL.Entities
         public Order()
         {
             this.Products = new List<Product>();
+            this.OrderLines = new List<OrderLine>();
         }
 
         public int Id { get; set; }
@@ -18,6 +19,10 @@ namespace DLL.Entities
 
         public OrderState State { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public int? OrderLineId { get; set; }
+
+        public List<Product> Products { get; set; }
+
+        public ICollection<OrderLine> OrderLines { get; set; }
     }
 }

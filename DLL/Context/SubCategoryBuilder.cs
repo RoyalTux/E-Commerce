@@ -21,10 +21,14 @@ namespace DLL.Context
                 .IsRequired();
 
             modelBuilder.Entity<SubCategory>()
-                .HasRequired(x => x.Category);
+               .HasRequired(x => x.Category);
 
             modelBuilder.Entity<SubCategory>()
                 .HasMany(x => x.Products);
+
+            // modelBuilder.Entity<SubCategory>()
+            //    .HasOptional(x => x.Category)
+            //    .WithMany(x => x.SubCategories);
 
             // .WithRequired(x => x.SubCategory)
             // .HasForeignKey(x => x.SubCategory);

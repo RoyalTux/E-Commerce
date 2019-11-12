@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BLL.Extensibility.Dto
+﻿namespace BLL.Extensibility.Dto
 {
     public class ProductDto
     {
@@ -22,8 +20,8 @@ namespace BLL.Extensibility.Dto
 
         public double TrackDuration { get; set; }
 
-        public int? CategoryId { get; set; }
+        public int? SubCategoryId { get; set; }
 
-        public CategoryDto Category { get; set; }
+        // public virtual SubCategory SubCategory { get; set; }
     }
 }
