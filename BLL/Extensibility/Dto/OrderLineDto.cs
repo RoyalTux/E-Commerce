@@ -1,6 +1,6 @@
-﻿using DLL.Extensibility.Entities;
+﻿using ECommerce.DLL.Extensibility.Entities;
 
-namespace BLL.Extensibility.Dto
+namespace ECommerce.BLL.Extensibility.Dto
 {
     public class OrderLineDto
     {

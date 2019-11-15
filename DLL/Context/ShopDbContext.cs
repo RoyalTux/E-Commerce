@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility;
+using ECommerce.DLL.Extensibility.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     public class ShopDbContext : IdentityDbContext, IShopDbContext
     {
@@ -17,17 +17,17 @@ namespace DLL.Context
 
         public IDbSet<Category> Categories { get; set; }
 
-        public DbSet<SubCategory> Subcategories { get; set; }
-
         public IDbSet<Product> Product { get; set; }
 
         public IDbSet<Order> Orders { get; set; }
 
+        public IDbSet<OrderLine> OrderLines { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             CategoryBuilder.BuildCategory(modelBuilder);
-            SubCategoryBuilder.BuildSubCategory(modelBuilder);
             OrderBuilder.BuildOrder(modelBuilder);
+            OrderLineBuilder.BuildOrderLine(modelBuilder);
             ProductBuilder.BuildProduct(modelBuilder);
             UserProfileBuilder.BuildUserProfile(modelBuilder);
 

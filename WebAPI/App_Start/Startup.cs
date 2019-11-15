@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using ECommerce.WebAPI;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using WebAPI;
 
 [assembly: OwinStartup(typeof(Startup))]
 
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public class Startup
     {

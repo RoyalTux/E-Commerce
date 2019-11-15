@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using BLL.Extensibility;
-using BLL.Extensibility.Dto;
-using BLL.Extensibility.Entity;
-using ShoppingCart = BLL.Entity.ShoppingCart;
+using ECommerce.BLL.Extensibility;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.BLL.Extensibility.Entities;
 
-namespace BLL.Services
+namespace ECommerce.BLL.Services
 {
     public class UserService : IUserService
     {

@@ -1,4 +1,4 @@
-﻿namespace BLL.Extensibility.Dto
+﻿namespace ECommerce.BLL.Extensibility.Dto
 {
     public enum StateDto
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DLL.Extensibility.Repository
+namespace ECommerce.DLL.Extensibility.Repository
 {
     public interface IBaseRepository<TDomainEntity>
         where TDomainEntity : class

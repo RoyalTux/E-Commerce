@@ -1,25 +1,17 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using AutoMapper;
-using DLL.Extensibility;
-using DLL.Extensibility.Entities;
-using DLL.Extensibility.Repository;
+﻿using AutoMapper;
+using ECommerce.DLL.DataEntities;
+using ECommerce.DLL.Extensibility;
+using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 // ReSharper disable ReplaceWithSingleCallToFirstOrDefault
-namespace DLL.Repository
+namespace ECommerce.DLL.Repository
 {
-    internal class OrderRepository : BaseRepository<Order>, IOrderRepository
+    internal class OrderRepository : BaseRepository<Order, OrderDataEntity>, IOrderRepository<OrderDataEntity>
     {
         public OrderRepository(IShopDbContext context, IMapper mapper)
             : base(context, mapper)
         {
-        }
-
-        public Order GetById(int id)
-        {
-            var entity = this.Mapper.Map<Order>(this.Set.Include(x => x.Products).Where(x => x.Id == id).FirstOrDefault());
-
-            return entity;
         }
     }
 }

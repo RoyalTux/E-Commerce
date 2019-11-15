@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public class FilterConfig
     {

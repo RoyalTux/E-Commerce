@@ -1,6 +1,6 @@
-﻿using BLL.Extensibility.Dto;
+﻿using ECommerce.BLL.Extensibility.Dto;
 
-namespace BLL.Extensibility
+namespace ECommerce.BLL.Extensibility
 {
     public interface IAdminService
     {

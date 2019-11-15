@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DLL.Extensibility.Entities
+namespace ECommerce.DLL.Extensibility.Entities
 {
     public class Order
     {

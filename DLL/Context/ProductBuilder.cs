@@ -1,55 +1,55 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     internal class ProductBuilder
     {
         public static void BuildProduct(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Name)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Description)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.PhotoPath)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Price)
                 .HasPrecision(9, 2)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Quantity)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Album)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.Artist)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductDataEntity>()
                 .Property(x => x.TrackDuration)
                 .IsRequired();
 
-            // modelBuilder.Entity<Product>()
-            //    .HasRequired(x => x.SubCategory);
+            modelBuilder.Entity<ProductDataEntity>()
+                .HasRequired(x => x.CategoryDataEntity);
         }
     }
 }

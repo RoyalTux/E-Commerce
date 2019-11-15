@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BLL.Extensibility.Entity
+namespace ECommerce.BLL.Extensibility.Entities
 {
     public class ShoppingCart : IShoppingCart
     {

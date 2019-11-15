@@ -1,24 +1,17 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using AutoMapper;
-using DLL.Extensibility;
-using DLL.Extensibility.Entities;
-using DLL.Extensibility.Repository;
+﻿using AutoMapper;
+using ECommerce.DLL.DataEntities;
+using ECommerce.DLL.Extensibility;
+using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 // ReSharper disable ReplaceWithSingleCallToFirstOrDefault
-namespace DLL.Repository
+namespace ECommerce.DLL.Repository
 {
-    internal class CategoryRepository : BaseRepository<Category>, ICategoryRepository
+    internal class CategoryRepository : BaseRepository<Category, CategoryDataEntity>, ICategoryRepository<CategoryDataEntity>
     {
         public CategoryRepository(IShopDbContext context, IMapper mapper)
             : base(context, mapper)
         {
-        }
-
-        public Category GetById(int id)
-        {
-            var entity = this.Mapper.Map<Category>(this.Set.Include(x => x.SubCategories).Where(x => x.Id == id).FirstOrDefault());
-            return entity;
         }
     }
 }

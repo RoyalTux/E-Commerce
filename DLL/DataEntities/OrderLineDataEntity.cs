@@ -1,6 +1,6 @@
-﻿namespace DLL.Entities
+﻿namespace ECommerce.DLL.DataEntities
 {
-    internal class Product
+    internal class OrderLineDataEntity
     {
         public int Id { get; set; }
 
@@ -20,8 +20,6 @@
 
         public double TrackDuration { get; set; }
 
-        public int? SubCategoryId { get; set; }
-
-        // public virtual SubCategory SubCategory { get; set; }
+        public virtual OrderDataEntity OrderDataEntity { get; set; }
     }
 }

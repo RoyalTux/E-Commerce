@@ -1,41 +1,41 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     internal class UserProfileBuilder
     {
         public static void BuildUserProfile(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.Name)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.Address)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.Email)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.Password)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.Role)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            modelBuilder.Entity<UserProfile>()
+            modelBuilder.Entity<UserProfileDataEntity>()
                 .Property(x => x.UserName)
                 .HasMaxLength(256)
                 .IsRequired();

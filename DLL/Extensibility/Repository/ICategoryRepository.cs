@@ -1,10 +1,11 @@
-﻿using DLL.Extensibility.Entities;
+﻿using ECommerce.DLL.Extensibility.Entities;
 
 // ReSharper disable once UnusedMember.Global
-namespace DLL.Extensibility.Repository
+namespace ECommerce.DLL.Extensibility.Repository
 {
-    public interface ICategoryRepository : IBaseRepository<Category>
+    public interface ICategoryRepository<TDataEntity> : IBaseRepository<Category>
+        where TDataEntity : class
     {
-        Category GetById(int id);
+        TDataEntity GetById(int id);
     }
 }

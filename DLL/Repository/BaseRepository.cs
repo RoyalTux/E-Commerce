@@ -2,13 +2,14 @@
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
-using DLL.Extensibility;
-using DLL.Extensibility.Repository;
+using ECommerce.DLL.Extensibility;
+using ECommerce.DLL.Extensibility.Repository;
 
-namespace DLL.Repository
+namespace ECommerce.DLL.Repository
 {
-    internal abstract class BaseRepository<TDomainEntity> : IBaseRepository<TDomainEntity>
+    internal abstract class BaseRepository<TDomainEntity, TDataEntity> : IBaseRepository<TDomainEntity>
         where TDomainEntity : class
+        where TDataEntity : class
     {
         private readonly IShopDbContext _shopDbContext;
 
@@ -26,6 +27,11 @@ namespace DLL.Repository
         public virtual IEnumerable<TDomainEntity> GetAll()
         {
             return this.Mapper.Map<IEnumerable<TDomainEntity>>(this.Set.AsEnumerable());
+        }
+
+        public virtual TDataEntity GetById(int id)
+        {
+            return this.Mapper.Map<TDataEntity>(this.Set.Find(id));
         }
 
         public virtual void Add(TDomainEntity entity)

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ShoppingCartLine = BLL.Extensibility.Entity.ShoppingCartLine;
+using ECommerce.BLL.Extensibility.Entities;
 
-namespace BLL.Extensibility
+namespace ECommerce.BLL.Extensibility
 {
     public interface IShoppingCart
     {

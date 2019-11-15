@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using BLL.Extensibility.Dto;
-using BLL.Extensibility.Infrastructure;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.BLL.Extensibility.Infrastructure;
 using WebAPI.Models;
 
-namespace WebAPI.Infrastructure
+namespace ECommerce.WebAPI.Infrastructure
 {
     public class WebApiMappingConfig : Profile
     {

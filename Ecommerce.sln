@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.DLL", "DLL\Ecommerce.DLL.csproj", "{D4F44FD8-43F1-4A67-B054-4A8EDDA88C50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.DLL", "DLL\ECommerce.DLL.csproj", "{D4F44FD8-43F1-4A67-B054-4A8EDDA88C50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.BLL", "BLL\Ecommerce.BLL.csproj", "{32DD7C4F-3B34-46CA-8C60-4DD0A902422B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.BLL", "BLL\ECommerce.BLL.csproj", "{32DD7C4F-3B34-46CA-8C60-4DD0A902422B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.WebAPI", "WebAPI\Ecommerce.WebAPI.csproj", "{146CCFDA-68C2-47D8-9DD1-733DF125C143}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.WebAPI", "WebAPI\ECommerce.WebAPI.csproj", "{146CCFDA-68C2-47D8-9DD1-733DF125C143}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Core", "Core\Ecommerce.Core.csproj", "{B579D992-5605-489B-8240-FD3BBC910595}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Core", "Core\ECommerce.Core.csproj", "{B579D992-5605-489B-8240-FD3BBC910595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

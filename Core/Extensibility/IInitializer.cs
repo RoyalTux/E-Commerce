@@ -1,7 +1,7 @@
-﻿namespace Core.Extensibility
+﻿namespace ECommerce.Core.Extensibility
 {
-	public interface IInitializer
-	{
-		void Init();
-	}
+    public interface IInitializer
+    {
+        void Init();
+    }
 }

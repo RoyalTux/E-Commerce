@@ -1,19 +1,18 @@
 ﻿using System;
-using DLL.Extensibility.Repository;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.DLL.Extensibility.Repository;
 
-namespace BLL.Extensibility
+namespace ECommerce.BLL.Extensibility
 {
     public interface IShopService : IDisposable
     {
-        ICategoryRepository Categories { get; }
+        ICategoryRepository<CategoryDto> Categories { get; }
 
-        ISubCategoryRepository SubCategories { get; }
+        IProductRepository<ProductDto> Products { get; }
 
-        IProductRepository Products { get; }
+        IOrderRepository<OrderDto> Orders { get; }
 
-        IOrderRepository Orders { get; }
-
-        IOrderLineRepository OrderLines { get; }
+        IOrderLineRepository<OrderLineDto> OrderLines { get; }
 
         int Save();
     }

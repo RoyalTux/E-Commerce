@@ -1,4 +1,4 @@
-﻿namespace DLL.Extensibility.Entities
+﻿namespace ECommerce.DLL.Extensibility.Entities
 {
     public class Product
     {
@@ -20,8 +20,6 @@
 
         public double TrackDuration { get; set; }
 
-        public int? SubCategoryId { get; set; }
-
-        // public virtual SubCategory SubCategory { get; set; }
+        public Category Category { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Ninject.Modules;
 
-namespace WebAPI.Infrastructure
+namespace ECommerce.WebAPI.Infrastructure
 {
     public class AutoMapperNinjectModule : NinjectModule
     {

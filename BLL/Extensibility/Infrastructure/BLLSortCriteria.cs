@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace BLL.Extensibility.Infrastructure
+namespace ECommerce.BLL.Extensibility.Infrastructure
 {
     public enum BLLSortCriteria
     {

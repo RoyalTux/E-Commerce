@@ -1,4 +1,4 @@
-﻿namespace DLL.Extensibility.Entities
+﻿namespace ECommerce.DLL.Extensibility.Entities
 {
     public enum OrderState
     {

@@ -1,19 +1,19 @@
 using System;
 using System.Web;
-using BLL.Extensibility.Infrastructure;
+using ECommerce.BLL.Extensibility.Infrastructure;
+using ECommerce.WebAPI;
+using ECommerce.WebAPI.Infrastructure;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
 using Ninject.WebApi.DependencyResolver;
-using WebAPI;
-using WebAPI.Infrastructure;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
 // ReSharper disable InconsistentNaming
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public static class NinjectWebCommon
     {

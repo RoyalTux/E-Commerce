@@ -1,24 +1,24 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     internal class CategoryBuilder
     {
         public static void BuildCategory(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>()
+            modelBuilder.Entity<CategoryDataEntity>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<Category>()
+            modelBuilder.Entity<CategoryDataEntity>()
+                .HasMany(x => x.SubCategoryDataEntities)
+                .WithRequired(x => x.ParentCategoryDataEntity)
+                .HasForeignKey(x => x.ParentId);
+
+            modelBuilder.Entity<CategoryDataEntity>()
                 .Property(x => x.Name)
                 .HasMaxLength(256)
                 .IsRequired();
-
-            modelBuilder.Entity<Category>()
-                .HasMany(x => x.SubCategories)
-                .WithRequired(x => x.Category)
-                .HasForeignKey(x => x.CategoryId);
         }
     }
 }

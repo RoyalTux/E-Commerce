@@ -1,18 +1,15 @@
 ﻿namespace DLL.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DLL.Context.ShopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ECommerce.DLL.Context.ShopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DLL.Context.ShopDbContext context)
+        protected override void Seed(ECommerce.DLL.Context.ShopDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

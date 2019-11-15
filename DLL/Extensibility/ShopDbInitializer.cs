@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using DLL.Context;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.Context;
+using ECommerce.DLL.Extensibility.Entities;
 
 // ReSharper disable CollectionNeverQueried.Local
 // ReSharper disable RedundantCommaInInitializer
 // ReSharper disable StringLiteralTypo
-namespace DLL.Extensibility
+namespace ECommerce.DLL.Extensibility
 {
     public class ShopDbInitializer : CreateDatabaseIfNotExists<ShopDbContext>
     {

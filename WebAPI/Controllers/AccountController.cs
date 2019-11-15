@@ -1,12 +1,12 @@
 ﻿using System.Web;
 using System.Web.Http;
-using BLL.Extensibility;
-using BLL.Extensibility.Dto;
+using ECommerce.BLL.Extensibility;
+using ECommerce.BLL.Extensibility.Dto;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+namespace ECommerce.WebAPI.Controllers
 {
     [RoutePrefix("api/account")]
     public class AccountController : ApiController

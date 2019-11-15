@@ -1,9 +1,9 @@
-﻿using BLL.Entity;
-using BLL.Services;
+﻿using ECommerce.BLL.Extensibility.Entities;
+using ECommerce.BLL.Services;
 using Ninject.Modules;
 
 // ReSharper disable InconsistentNaming
-namespace BLL.Extensibility.Infrastructure
+namespace ECommerce.BLL.Extensibility.Infrastructure
 {
     public class BLLNinjectModule : NinjectModule
     {

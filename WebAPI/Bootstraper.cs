@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using Core.Extensibility;
+using ECommerce.Core.Extensibility;
 using Ninject;
 
 // ReSharper disable once IdentifierTypo
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public static class Bootstraper
     {

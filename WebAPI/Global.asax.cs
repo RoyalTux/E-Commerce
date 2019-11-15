@@ -2,10 +2,12 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.WebAPI.Infrastructure;
 using Ninject;
 
 // ReSharper disable once StringLiteralTypo
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public class Global : System.Web.HttpApplication
     {
@@ -25,13 +27,15 @@ namespace WebAPI
 
             // DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
             Bootstraper.Start(kernel);
+
+            ModelBinders.Binders.Add(typeof(ProductDto), new ProductModelBinding());
         }
 
         private IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Load("Ecommerce.Core.dll");
 
+            // kernel.Load("Ecommerce.Core.dll");  // убрать
             return kernel;
         }
     }

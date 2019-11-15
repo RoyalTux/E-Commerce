@@ -1,6 +1,6 @@
-﻿namespace DLL.Entities
+﻿namespace ECommerce.DLL.DataEntities
 {
-    public class UserProfile
+    public class UserProfileDataEntity
     {
         public string Id { get; set; }
 

@@ -8,8 +8,8 @@
     <ProjectGuid>{32DD7C4F-3B34-46CA-8C60-4DD0A902422B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>ECommerce.BLL</RootNamespace>
+    <AssemblyName>ECommerce.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -69,12 +69,11 @@
     <Compile Include="Extensibility\Dto\ProductDto.cs" />
     <Compile Include="Extensibility\Dto\OrderDto.cs" />
     <Compile Include="Extensibility\Dto\StateDto.cs" />
-    <Compile Include="Extensibility\Dto\SubCategoryDto.cs" />
     <Compile Include="Extensibility\Dto\UserDto.cs" />
-    <Compile Include="Entity\ShoppingCart.cs" />
-    <Compile Include="Entity\ShoppingCartLine.cs" />
-    <Compile Include="Extensibility\Entity\ShoppingCart.cs" />
-    <Compile Include="Extensibility\Entity\ShoppingCartLine.cs" />
+    <Compile Include="DataEntities\ShoppingCartDataEntity.cs" />
+    <Compile Include="DataEntities\ShoppingCartLineDataEntity.cs" />
+    <Compile Include="Extensibility\Entities\ShoppingCart.cs" />
+    <Compile Include="Extensibility\Entities\ShoppingCartLine.cs" />
     <Compile Include="Extensibility\Infrastructure\BLLNinjectModule.cs" />
     <Compile Include="Extensibility\Infrastructure\OperationDetailsBLL.cs" />
     <Compile Include="Extensibility\IAccountService.cs" />
@@ -100,9 +99,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DLL\Ecommerce.DLL.csproj">
+    <ProjectReference Include="..\DLL\ECommerce.DLL.csproj">
       <Project>{d4f44fd8-43f1-4a67-b054-4a8edda88c50}</Project>
-      <Name>Ecommerce.DLL</Name>
+      <Name>ECommerce.DLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

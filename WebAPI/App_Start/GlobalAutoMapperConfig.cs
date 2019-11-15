@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using WebAPI.Infrastructure;
+using ECommerce.WebAPI.Infrastructure;
 
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public static class GlobalAutoMapperConfig
     {

@@ -1,32 +1,32 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     internal class OrderBuilder
     {
         public static void BuildOrder(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<OrderDataEntity>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<OrderDataEntity>()
                 .Property(x => x.Price)
                 .HasPrecision(9, 2)
                 .IsRequired();
 
-            modelBuilder.Entity<Order>()
-                .Property(x => x.State)
+            modelBuilder.Entity<OrderDataEntity>()
+                .Property(x => x.StateDataEntity)
                 .IsRequired();
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<OrderDataEntity>()
                 .Property(x => x.Time)
                 .IsRequired();
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<OrderDataEntity>()
                 .HasMany(p => p.Products);
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<OrderDataEntity>()
                 .HasMany(x => x.OrderLines);
         }
     }

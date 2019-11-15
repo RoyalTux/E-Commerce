@@ -1,9 +1,9 @@
 ﻿using System.Web.Http;
 using AutoMapper;
-using BLL.Extensibility;
+using ECommerce.BLL.Extensibility;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+namespace ECommerce.WebAPI.Controllers
 {
     [RoutePrefix("api/user/cartPanel")]
     public class UserController : ApiController

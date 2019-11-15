@@ -1,6 +1,6 @@
-﻿namespace ECommerce.BLL.Extensibility.Dto
+﻿namespace ECommerce.DLL.DataEntities
 {
-    public class ProductDto
+    internal class ProductDataEntity
     {
         public int Id { get; set; }
 
@@ -19,5 +19,7 @@
         public string Artist { get; set; }
 
         public double TrackDuration { get; set; }
+
+        public CategoryDataEntity CategoryDataEntity { get; set; }
     }
 }

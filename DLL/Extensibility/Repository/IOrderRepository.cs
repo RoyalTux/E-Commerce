@@ -1,9 +1,10 @@
-﻿using DLL.Extensibility.Entities;
+﻿using ECommerce.DLL.Extensibility.Entities;
 
-namespace DLL.Extensibility.Repository
+namespace ECommerce.DLL.Extensibility.Repository
 {
-    public interface IOrderRepository : IBaseRepository<Order>
+    public interface IOrderRepository<TDataEntity> : IBaseRepository<Order>
+        where TDataEntity : class
     {
-        Order GetById(int id);
+        TDataEntity GetById(int id);
     }
 }

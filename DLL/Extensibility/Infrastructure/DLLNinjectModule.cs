@@ -1,6 +1,5 @@
-﻿using Core.Extensibility;
-using DLL.Context;
-using DLL.Extensibility;
+﻿using ECommerce.Core.Extensibility;
+using ECommerce.DLL.Context;
 using Ninject.Extensions.Conventions;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -9,7 +8,7 @@ using Ninject.Web.Common;
 // ReSharper disable IdentifierTypo
 // ReSharper disable UnusedMember.Global
 // ReSharper disable CommentTypo
-namespace DLL
+namespace ECommerce.DLL.Extensibility.Infrastructure
 {
     public class DLLNinjectModule : NinjectModule
     {

@@ -1,8 +1,8 @@
-﻿using BLL.Extensibility.Dto;
+﻿using ECommerce.BLL.Extensibility.Dto;
 
-namespace BLL.Entity
+namespace ECommerce.BLL.Extensibility.Entities
 {
-    internal class ShoppingCartLine
+    public class ShoppingCartLine
     {
         public int Id { get; set; }
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using AutoMapper;
-using BLL.Extensibility;
-using BLL.Extensibility.Dto;
-using DLL.Extensibility.Entities;
+using ECommerce.BLL.Extensibility;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.DLL.Extensibility.Entities;
 
-namespace BLL.Services
+namespace ECommerce.BLL.Services
 {
     internal class AdminService : IAdminService
     {

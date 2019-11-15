@@ -15,8 +15,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebAPI</RootNamespace>
-    <AssemblyName>WebAPI</AssemblyName>
+    <RootNamespace>ECommerce.WebAPI</RootNamespace>
+    <AssemblyName>ECommerce.WebAPI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -227,6 +227,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperNinjectModule.cs" />
+    <Compile Include="Infrastructure\ProductModelBinding.cs" />
     <Compile Include="Infrastructure\WebApiMappingConfig.cs" />
     <Compile Include="Infrastructure\WebApiNinjectModule.cs" />
     <Compile Include="Models\CategoryView.cs" />
@@ -327,13 +328,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\Ecommerce.BLL.csproj">
+    <ProjectReference Include="..\BLL\ECommerce.BLL.csproj">
       <Project>{32dd7c4f-3b34-46ca-8c60-4dd0a902422b}</Project>
-      <Name>Ecommerce.BLL</Name>
+      <Name>ECommerce.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core\Ecommerce.Core.csproj">
+    <ProjectReference Include="..\Core\ECommerce.Core.csproj">
       <Project>{B579D992-5605-489B-8240-FD3BBC910595}</Project>
-      <Name>Ecommerce.Core</Name>
+      <Name>ECommerce.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

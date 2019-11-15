@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Entities;
 
 // ReSharper disable UnusedMember.Global
-namespace DLL.Extensibility
+namespace ECommerce.DLL.Extensibility
 {
     public interface IShopDbContext
     {
@@ -15,11 +15,13 @@ namespace DLL.Extensibility
 
         IDbSet<Order> Orders { get; set; }
 
-        DbSet<TEntity> Set<TEntity>()
-            where TEntity : class;
+        IDbSet<OrderLine> OrderLines { get; set; }
 
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity)
-            where TEntity : class;
+        DbSet<TDataEntity> Set<TDataEntity>()
+            where TDataEntity : class;
+
+        DbEntityEntry<TDataEntity> Entry<TDataEntity>(TDataEntity entity)
+            where TDataEntity : class;
 
         int SaveChanges();
 

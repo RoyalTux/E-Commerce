@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using BLL.Extensibility.Dto;
-using BLL.Extensibility.Infrastructure;
+using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.BLL.Extensibility.Infrastructure;
 
-namespace BLL.Extensibility
+namespace ECommerce.BLL.Extensibility
 {
     public interface IProductService
     {
@@ -18,6 +18,6 @@ namespace BLL.Extensibility
 
         IEnumerable<ProductDto> Search(string request);
 
-        IEnumerable<ProductDto> FilterByCategory(int categoryId);
+        // IEnumerable<ProductDto> FilterByCategory(int categoryId);
     }
 }

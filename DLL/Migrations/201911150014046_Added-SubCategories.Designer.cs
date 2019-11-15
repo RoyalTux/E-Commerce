@@ -7,13 +7,13 @@ namespace DLL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class addedproductseed : IMigrationMetadata
+    public sealed partial class AddedSubCategories : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedproductseed));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedSubCategories));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911121216415_added-product-seed"; }
+            get { return "201911150014046_Added-SubCategories"; }
         }
         
         string IMigrationMetadata.Source

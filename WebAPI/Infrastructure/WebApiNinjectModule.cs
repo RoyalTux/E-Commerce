@@ -1,8 +1,8 @@
-﻿using BLL.Extensibility;
-using BLL.Extensibility.Entity;
+﻿using ECommerce.BLL.Extensibility;
+using ECommerce.BLL.Extensibility.Entities;
 using Ninject.Modules;
 
-namespace WebAPI.Infrastructure
+namespace ECommerce.WebAPI.Infrastructure
 {
     public class WebApiNinjectModule : NinjectModule
     {

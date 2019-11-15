@@ -1,22 +1,55 @@
 ﻿using System.Data.Entity;
-using DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
-namespace DLL.Context
+namespace ECommerce.DLL.Context
 {
     internal class OrderLineBuilder
     {
         public static void BuildOrderLine(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<OrderLine>()
+            modelBuilder.Entity<OrderLineDataEntity>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<OrderLine>()
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.Album)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.Artist)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.Description)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.Name)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.PhotoPath)
+                .HasMaxLength(256)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
                 .Property(x => x.Price)
                 .HasPrecision(9, 2)
                 .IsRequired();
 
-            modelBuilder.Entity<OrderLine>()
-                .HasRequired(x => x.Order);
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.Quantity)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .Property(x => x.TrackDuration)
+                .IsRequired();
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .HasRequired(x => x.OrderDataEntity);
         }
     }
 }

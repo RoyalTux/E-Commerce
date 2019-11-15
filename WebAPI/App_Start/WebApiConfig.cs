@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace WebAPI
+namespace ECommerce.WebAPI
 {
     public static class WebApiConfig
     {

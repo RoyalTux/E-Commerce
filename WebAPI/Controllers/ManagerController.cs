@@ -1,10 +1,10 @@
 ﻿using System.Web.Http;
 using AutoMapper;
-using BLL.Extensibility;
-using BLL.Extensibility.Dto;
+using ECommerce.BLL.Extensibility;
+using ECommerce.BLL.Extensibility.Dto;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+namespace ECommerce.WebAPI.Controllers
 {
     [RoutePrefix("api/manager/orders")]
     [Authorize(Roles = "manager")]
@@ -20,7 +20,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("edit")]
         public IHttpActionResult UpdateOrder([FromBody]OrderView order)
         {
             if (this.ModelState.IsValid)
