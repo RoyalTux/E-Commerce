@@ -244,6 +244,7 @@
     <Compile Include="Models\PaginationParams.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\SortCriteriaView.cs" />
+    <Compile Include="Models\StateView.cs" />
     <Compile Include="Models\WebApiFilterCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

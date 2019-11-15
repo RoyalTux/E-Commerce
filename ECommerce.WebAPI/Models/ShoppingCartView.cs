@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebAPI.Models
+namespace ECommerce.WebAPI.Models
 {
     public class ShoppingCartView
     {

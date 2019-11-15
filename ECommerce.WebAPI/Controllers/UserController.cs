@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
-using WebAPI.Models;
+using ECommerce.WebAPI.Models;
 
 namespace ECommerce.WebAPI.Controllers
 {

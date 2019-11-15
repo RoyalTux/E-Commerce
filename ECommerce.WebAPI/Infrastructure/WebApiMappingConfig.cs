@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.BLL.Extensibility.Infrastructure;
-using WebAPI.Models;
+using ECommerce.WebAPI.Models;
 
 namespace ECommerce.WebAPI.Infrastructure
 {

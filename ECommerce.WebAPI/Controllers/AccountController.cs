@@ -2,9 +2,9 @@
 using System.Web.Http;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
+using ECommerce.WebAPI.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using WebAPI.Models;
 
 namespace ECommerce.WebAPI.Controllers
 {

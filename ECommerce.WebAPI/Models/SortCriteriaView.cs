@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Models
+﻿namespace ECommerce.WebAPI.Models
 {
     public enum SortCriteriaView
     {

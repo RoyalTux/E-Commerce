@@ -4,7 +4,7 @@ using System.Web.Http;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Infrastructure;
-using WebAPI.Models;
+using ECommerce.WebAPI.Models;
 
 // ReSharper disable PossibleMultipleEnumeration
 namespace ECommerce.WebAPI.Controllers

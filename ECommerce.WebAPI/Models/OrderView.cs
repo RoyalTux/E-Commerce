@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models
+namespace ECommerce.WebAPI.Models
 {
-    public enum StateView
-    {
-        Confirmed,
-        InProcess,
-        Declined,
-    }
-
     public class OrderView
     {
         public OrderView()
