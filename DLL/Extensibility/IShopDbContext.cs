@@ -17,6 +17,8 @@ namespace ECommerce.DLL.Extensibility
 
         IDbSet<OrderLine> OrderLines { get; set; }
 
+        IDbSet<Cart> Carts { get; set; }
+
         DbSet<TDataEntity> Set<TDataEntity>()
             where TDataEntity : class;
 

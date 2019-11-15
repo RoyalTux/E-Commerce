@@ -21,6 +21,8 @@ namespace ECommerce.DLL.DataEntities
 
         public int? OrderLineId { get; set; }
 
+        public CartDataEntity CartDataEntity { get; set; }
+
         public List<ProductDataEntity> Products { get; set; }
 
         public ICollection<OrderLineDataEntity> OrderLines { get; set; }

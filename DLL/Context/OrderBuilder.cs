@@ -28,6 +28,9 @@ namespace ECommerce.DLL.Context
 
             modelBuilder.Entity<OrderDataEntity>()
                 .HasMany(x => x.OrderLines);
+
+            modelBuilder.Entity<OrderDataEntity>()
+                .HasRequired(x => x.CartDataEntity);
         }
     }
 }

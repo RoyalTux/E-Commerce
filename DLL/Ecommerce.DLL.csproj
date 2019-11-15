@@ -80,15 +80,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\CartBuilder.cs" />
     <Compile Include="Context\CategoryBuilder.cs" />
     <Compile Include="Context\OrderBuilder.cs" />
     <Compile Include="Context\OrderLineBuilder.cs" />
     <Compile Include="Context\ProductBuilder.cs" />
     <Compile Include="Context\UserProfileBuilder.cs" />
     <Compile Include="Context\ShopDbContext.cs" />
+    <Compile Include="DataEntities\CartDataEntity.cs" />
     <Compile Include="DataEntities\OrderLineDataEntity.cs" />
     <Compile Include="DataEntities\OrderStateDataEntity.cs" />
     <Compile Include="DatabaseSampleDataInitializer.cs" />
+    <Compile Include="Extensibility\Entities\Cart.cs" />
     <Compile Include="Extensibility\Infrastructure\DLLNinjectModule.cs" />
     <Compile Include="DataEntities\CategoryDataEntity.cs" />
     <Compile Include="DataEntities\ProductDataEntity.cs" />
@@ -117,6 +120,10 @@
     <Compile Include="Migrations\201911150014046_Added-SubCategories.cs" />
     <Compile Include="Migrations\201911150014046_Added-SubCategories.designer.cs">
       <DependentUpon>201911150014046_Added-SubCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911150033473_Added-Cart.cs" />
+    <Compile Include="Migrations\201911150033473_Added-Cart.designer.cs">
+      <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911150014046_Added-SubCategories.resx">
       <DependentUpon>201911150014046_Added-SubCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911150033473_Added-Cart.resx">
+      <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

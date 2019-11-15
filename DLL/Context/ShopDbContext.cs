@@ -23,11 +23,14 @@ namespace ECommerce.DLL.Context
 
         public IDbSet<OrderLine> OrderLines { get; set; }
 
+        public IDbSet<Cart> Carts { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             CategoryBuilder.BuildCategory(modelBuilder);
             OrderBuilder.BuildOrder(modelBuilder);
             OrderLineBuilder.BuildOrderLine(modelBuilder);
+            CartBuilder.BuildCart(modelBuilder);
             ProductBuilder.BuildProduct(modelBuilder);
             UserProfileBuilder.BuildUserProfile(modelBuilder);
 

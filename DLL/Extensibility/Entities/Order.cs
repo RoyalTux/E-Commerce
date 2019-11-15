@@ -21,6 +21,8 @@ namespace ECommerce.DLL.Extensibility.Entities
 
         public int? OrderLineId { get; set; }
 
+        public Cart Cart { get; set; }
+
         public List<Product> Products { get; set; }
 
         public ICollection<OrderLine> OrderLines { get; set; }
