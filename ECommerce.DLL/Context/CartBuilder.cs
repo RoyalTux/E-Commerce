@@ -11,6 +11,10 @@ namespace ECommerce.DLL.Context
                 .HasKey(x => x.Id);
 
             modelBuilder.Entity<CartDataEntity>()
+                .Property(x => x.TrackingNumber)
+                .IsRequired();
+
+            modelBuilder.Entity<CartDataEntity>()
                 .HasMany(x => x.OrderDataEntities);
         }
     }

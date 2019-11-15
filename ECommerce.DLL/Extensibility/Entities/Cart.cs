@@ -11,6 +11,8 @@ namespace ECommerce.DLL.Extensibility.Entities
 
         public int Id { get; set; }
 
+        public int TrackingNumber { get; set; }
+
         public ICollection<Order> Orders { get; set; }
     }
 }

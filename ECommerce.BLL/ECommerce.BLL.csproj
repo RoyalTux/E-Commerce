@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensibility\Dto\CartDto.cs" />
     <Compile Include="Extensibility\Dto\CategoryDto.cs" />
     <Compile Include="Extensibility\Dto\OrderLineDto.cs" />
     <Compile Include="Extensibility\Dto\ProductDto.cs" />

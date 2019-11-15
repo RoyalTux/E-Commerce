@@ -1,7 +1,7 @@
-﻿namespace DLL.Migrations
-{
-    using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 
+namespace ECommerce.DLL.Migrations
+{
     public partial class initial : DbMigration
     {
         public override void Up()

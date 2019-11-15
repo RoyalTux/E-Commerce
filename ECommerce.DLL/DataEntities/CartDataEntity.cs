@@ -11,6 +11,8 @@ namespace ECommerce.DLL.DataEntities
 
         public int Id { get; set; }
 
+        public int TrackingNumber { get; set; }
+
         public ICollection<OrderDataEntity> OrderDataEntities { get; set; }
     }
 }

@@ -127,6 +127,10 @@
     <Compile Include="Migrations\201911150033473_Added-Cart.designer.cs">
       <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911150917532_added-tracking-number-to-cart.cs" />
+    <Compile Include="Migrations\201911150917532_added-tracking-number-to-cart.designer.cs">
+      <DependentUpon>201911150917532_added-tracking-number-to-cart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911150033473_Added-Cart.resx">
       <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911150917532_added-tracking-number-to-cart.resx">
+      <DependentUpon>201911150917532_added-tracking-number-to-cart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
