@@ -135,19 +135,19 @@ namespace ECommerce.WebAPI.Controllers
             return this.Ok(sortedProducts);
         }
 
-        //[HttpGet]
-        //[Route("filterByCategory/{id}")]
-        //public IHttpActionResult FilterByCategory(int id)
-        //{
-        //    var products = this._productService.FilterByCategory(id);
-        //    var filterProducts = this._mapper.Map<IEnumerable<ProductView>>(products);
+        [HttpGet]
+        [Route("filterByCategory/{id}")]
+        public IHttpActionResult FilterByCategory(int id)
+        {
+            var products = this._productService.FilterByCategory(id);
+            var filterProducts = this._mapper.Map<IEnumerable<ProductView>>(products);
 
-        //    if (!filterProducts.Any())
-        //    {
-        //        return this.BadRequest();
-        //    }
+            if (!filterProducts.Any())
+            {
+                return this.BadRequest();
+            }
 
-        //    return this.Ok(filterProducts);
-        //}
+            return this.Ok(filterProducts);
+        }
     }
 }

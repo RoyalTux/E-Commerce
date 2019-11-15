@@ -5,14 +5,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B579D992-5605-489B-8240-FD3BBC910595}</ProjectGuid>
+    <ProjectGuid>{32DD7C4F-3B34-46CA-8C60-4DD0A902422B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ECommerce.Core</RootNamespace>
-    <AssemblyName>ECommerce.Core</AssemblyName>
+    <RootNamespace>ECommerce.BLL</RootNamespace>
+    <AssemblyName>ECommerce.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -24,6 +23,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,9 +33,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -49,6 +52,9 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -60,14 +66,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensibility\IInitializer.cs" />
+    <Compile Include="Extensibility\Dto\CategoryDto.cs" />
+    <Compile Include="Extensibility\Dto\OrderLineDto.cs" />
+    <Compile Include="Extensibility\Dto\ProductDto.cs" />
+    <Compile Include="Extensibility\Dto\OrderDto.cs" />
+    <Compile Include="Extensibility\Dto\StateDto.cs" />
+    <Compile Include="Extensibility\Dto\UserDto.cs" />
+    <Compile Include="DataEntities\ShoppingCartDataEntity.cs" />
+    <Compile Include="DataEntities\ShoppingCartLineDataEntity.cs" />
+    <Compile Include="Extensibility\Entities\ShoppingCart.cs" />
+    <Compile Include="Extensibility\Entities\ShoppingCartLine.cs" />
+    <Compile Include="Extensibility\Infrastructure\BLLNinjectModule.cs" />
+    <Compile Include="Extensibility\Infrastructure\OperationDetailsBLL.cs" />
+    <Compile Include="Extensibility\IAccountService.cs" />
+    <Compile Include="Extensibility\IAdminService.cs" />
+    <Compile Include="Extensibility\IShopService.cs" />
+    <Compile Include="Extensibility\IManageService.cs" />
+    <Compile Include="Extensibility\IProductService.cs" />
+    <Compile Include="Extensibility\IShoppingCart.cs" />
+    <Compile Include="Extensibility\IUserService.cs" />
+    <Compile Include="Extensibility\Infrastructure\BLLSortCriteria.cs" />
+    <Compile Include="Extensibility\Infrastructure\FilterCriterias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\ManageService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.DLL\ECommerce.DLL.csproj">
+      <Project>{d4f44fd8-43f1-4a67-b054-4a8edda88c50}</Project>
+      <Name>ECommerce.DLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

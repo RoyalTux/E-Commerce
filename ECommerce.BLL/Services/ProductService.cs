@@ -69,13 +69,13 @@ namespace ECommerce.BLL.Services
             return res;
         }
 
-        //public IEnumerable<ProductDto> FilterByCategory(int subCategoryId)
-        //{
-        //    var allProducts = this._db.Products.GetAll().Where(product => product.SubCategoryId == subCategoryId);
-        //    var products = this._mapper.Map<IEnumerable<ProductDto>>(allProducts);
+        public IEnumerable<ProductDto> FilterByCategory(int categoryId)
+        {
+            var allProducts = this._db.Products.GetAll().Where(product => product.Id == categoryId);
+            var products = this._mapper.Map<IEnumerable<ProductDto>>(allProducts);
 
-        //    return products;
-        //}
+            return products;
+        }
 
         private static IEnumerable<ProductDto> FilterByPrice(IEnumerable<ProductDto> products, int minPrice, int maxPrice)
         {

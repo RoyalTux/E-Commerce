@@ -18,6 +18,6 @@ namespace ECommerce.BLL.Extensibility
 
         IEnumerable<ProductDto> Search(string request);
 
-        // IEnumerable<ProductDto> FilterByCategory(int categoryId);
+        IEnumerable<ProductDto> FilterByCategory(int categoryId);
     }
 }
