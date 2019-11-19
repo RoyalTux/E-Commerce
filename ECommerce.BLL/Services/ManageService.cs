@@ -26,7 +26,6 @@ namespace ECommerce.BLL.Services
             {
                 var order = this._mapper.Map<Order>(orderDto);
                 this._orderDb.Edit(order);
-                this._orderDb.Save();
             }
             catch (Exception)
             {

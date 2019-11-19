@@ -16,7 +16,5 @@ namespace ECommerce.DLL.Extensibility.Repository
         void DeleteById(int id);
 
         void Edit(TDomainEntity entity);
-
-        int Save();
     }
 }

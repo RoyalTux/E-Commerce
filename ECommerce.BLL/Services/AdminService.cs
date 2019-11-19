@@ -32,7 +32,6 @@ namespace ECommerce.BLL.Services
             {
                 var category = this._mapper.Map<Category>(categoryDto);
                 this._categoryDb.Add(category);
-                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -48,7 +47,6 @@ namespace ECommerce.BLL.Services
             {
                 var category = this._mapper.Map<Category>(categoryDto);
                 this._categoryDb.Edit(category);
-                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -63,7 +61,6 @@ namespace ECommerce.BLL.Services
             try
             {
                 this._categoryDb.DeleteById(id);
-                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -79,7 +76,6 @@ namespace ECommerce.BLL.Services
             {
                 var item = this._mapper.Map<Product>(productDto);
                 this._productDb.Add(item);
-                this._productDb.Save();
             }
             catch (Exception)
             {
@@ -95,7 +91,6 @@ namespace ECommerce.BLL.Services
             {
                 var item = this._mapper.Map<Product>(productDto);
                 this._productDb.Edit(item);
-                this._productDb.Save();
             }
             catch (Exception)
             {
@@ -110,7 +105,6 @@ namespace ECommerce.BLL.Services
             try
             {
                 this._productDb.DeleteById(id);
-                this._productDb.Save();
             }
             catch (Exception)
             {

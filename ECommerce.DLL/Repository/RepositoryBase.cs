@@ -7,7 +7,7 @@ using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.DLL.Repository
 {
-    internal abstract class RepositoryBase<TDomainEntity, TDataEntity> : IRepositoryBase<TDomainEntity>
+    internal class RepositoryBase<TDomainEntity, TDataEntity> : IRepositoryBase<TDomainEntity>
         where TDomainEntity : class
         where TDataEntity : class
     {
@@ -56,7 +56,5 @@ namespace ECommerce.DLL.Repository
         {
             this._shopDbContext.Entry(entity).State = EntityState.Modified;
         }
-
-        public abstract int Save();
     }
 }
