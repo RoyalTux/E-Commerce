@@ -3,7 +3,7 @@ using ECommerce.DLL.DataEntities;
 
 namespace ECommerce.DLL.Context
 {
-    internal class OrderLineBuilder
+    public class OrderLineBuilder
     {
         public static void BuildOrderLine(DbModelBuilder modelBuilder)
         {

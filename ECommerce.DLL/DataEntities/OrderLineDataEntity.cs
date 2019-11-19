@@ -1,6 +1,6 @@
 ﻿namespace ECommerce.DLL.DataEntities
 {
-    internal class OrderLineDataEntity
+    public class OrderLineDataEntity
     {
         public int Id { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace ECommerce.DLL.DataEntities
 {
-    internal enum OrderStateDataEntity
+    public enum OrderStateDataEntity
     {
         Confirmed,
         InProcess,

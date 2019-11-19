@@ -1,23 +1,23 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
 // ReSharper disable UnusedMember.Global
-namespace ECommerce.DLL.Extensibility
+namespace ECommerce.DLL.Context
 {
     public interface IShopDbContext
     {
-        IDbSet<UserProfile> UserProfiles { get; set; }
+        IDbSet<UserProfileDataEntity> UserProfiles { get; set; }
 
-        IDbSet<Category> Categories { get; set; }
+        IDbSet<CategoryDataEntity> Categories { get; set; }
 
-        IDbSet<Product> Product { get; set; }
+        IDbSet<ProductDataEntity> Product { get; set; }
 
-        IDbSet<Order> Orders { get; set; }
+        IDbSet<OrderDataEntity> Orders { get; set; }
 
-        IDbSet<OrderLine> OrderLines { get; set; }
+        IDbSet<OrderLineDataEntity> OrderLines { get; set; }
 
-        IDbSet<Cart> Carts { get; set; }
+        IDbSet<CartDataEntity> Carts { get; set; }
 
         DbSet<TDataEntity> Set<TDataEntity>()
             where TDataEntity : class;

@@ -4,6 +4,8 @@ using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.BLL.Extensibility.Infrastructure;
+using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 // ReSharper disable PossibleMultipleEnumeration
 // ReSharper disable CompareOfFloatsByEqualityOperator
@@ -11,28 +13,30 @@ namespace ECommerce.BLL.Services
 {
     internal class ProductService : IProductService
     {
-        private readonly IShopService _db;
+        private readonly IRepositoryBase<Product> _productDb;
         private readonly IMapper _mapper;
 
-        public ProductService(IShopService db, IMapper mapper)
+        public ProductService(
+            IRepositoryBase<Product> productDb,
+            IMapper mapper)
         {
-            this._db = db;
+            this._productDb = productDb;
             this._mapper = mapper;
         }
 
         public ProductDto GetProduct(int id)
         {
-            return this._mapper.Map<ProductDto>(this._db.Products.GetById(id));
+            return this._mapper.Map<ProductDto>(this._productDb.GetById(id));
         }
 
         public IEnumerable<ProductDto> GetAllProducts()
         {
-            return this._mapper.Map<IEnumerable<ProductDto>>(this._db.Products.GetAll());
+            return this._mapper.Map<IEnumerable<ProductDto>>(this._productDb.GetAll());
         }
 
         public IEnumerable<ProductDto> GetProductsWithPagination(int page, int pageSize)
         {
-            var products = this._db.Products.GetAll()
+            var products = this._productDb.GetAll()
                      .OrderBy(product => product.Id)
                      .Skip((page - 1) * pageSize)
                      .Take(pageSize);
@@ -71,7 +75,7 @@ namespace ECommerce.BLL.Services
 
         public IEnumerable<ProductDto> FilterByCategory(int categoryId)
         {
-            var allProducts = this._db.Products.GetAll().Where(product => product.Id == categoryId);
+            var allProducts = this._productDb.GetAll().Where(product => product.Id == categoryId);
             var products = this._mapper.Map<IEnumerable<ProductDto>>(allProducts);
 
             return products;

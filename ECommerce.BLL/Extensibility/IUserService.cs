@@ -10,8 +10,8 @@ namespace ECommerce.BLL.Extensibility
 
         bool Clear(IShoppingCart lineCollection);
 
-        IShoppingCart ComposeCart(IShoppingCart lineCollection);
+        CartDto ComposeCart(IShoppingCart lineCollection);
 
-        OrderDto MakeOrder(IShoppingCart cart);
+        // OrderDto MakeOrder(IShoppingCart cart);
     }
 }

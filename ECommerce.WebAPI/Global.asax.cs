@@ -35,7 +35,6 @@ namespace ECommerce.WebAPI
         {
             var kernel = new StandardKernel();
 
-            // kernel.Load("Ecommerce.Core.dll");  // убрать
             return kernel;
         }
     }

@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
-using ECommerce.BLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Entities;
 
 namespace ECommerce.BLL.Extensibility
 {
     public interface IShoppingCart
     {
-        List<ShoppingCartLine> Lines { get; set; }
+        List<Product> Products { get; set; }
 
         decimal OverallPrice { get; set; }
+
+        int TrackingNumber { get; set; }
+
+        int Quantity { get; set; }
     }
 }

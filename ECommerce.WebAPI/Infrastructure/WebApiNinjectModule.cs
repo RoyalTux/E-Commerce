@@ -1,6 +1,4 @@
-﻿using ECommerce.BLL.Extensibility;
-using ECommerce.BLL.Extensibility.Entities;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 
 namespace ECommerce.WebAPI.Infrastructure
 {
@@ -8,7 +6,6 @@ namespace ECommerce.WebAPI.Infrastructure
     {
         public override void Load()
         {
-            this.Bind<IShoppingCart>().To<ShoppingCart>().InSingletonScope();
         }
     }
 }

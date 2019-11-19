@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using ECommerce.Core.Extensibility;
-using ECommerce.DLL.Extensibility;
 
 namespace ECommerce.DLL
 {

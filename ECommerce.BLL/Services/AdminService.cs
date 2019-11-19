@@ -3,17 +3,26 @@ using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.BLL.Services
 {
     internal class AdminService : IAdminService
     {
-        private readonly IShopService _db;
+        private readonly IRepositoryBase<Category> _categoryDb;
+        private readonly IRepositoryBase<Order> _orderDb;
+        private readonly IRepositoryBase<Product> _productDb;
         private readonly IMapper _mapper;
 
-        public AdminService(IShopService db, IMapper mapper)
+        public AdminService(
+            IRepositoryBase<Category> categoryDb,
+            IRepositoryBase<Order> orderDb,
+            IRepositoryBase<Product> productDb,
+            IMapper mapper)
         {
-            this._db = db;
+            this._categoryDb = categoryDb;
+            this._orderDb = orderDb;
+            this._productDb = productDb;
             this._mapper = mapper;
         }
 
@@ -22,8 +31,8 @@ namespace ECommerce.BLL.Services
             try
             {
                 var category = this._mapper.Map<Category>(categoryDto);
-                this._db.Categories.Add(category);
-                this._db.Save();
+                this._categoryDb.Add(category);
+                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -38,8 +47,8 @@ namespace ECommerce.BLL.Services
             try
             {
                 var category = this._mapper.Map<Category>(categoryDto);
-                this._db.Categories.Edit(category);
-                this._db.Save();
+                this._categoryDb.Edit(category);
+                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -53,8 +62,8 @@ namespace ECommerce.BLL.Services
         {
             try
             {
-                this._db.Categories.DeleteById(id);
-                this._db.Save();
+                this._categoryDb.DeleteById(id);
+                this._categoryDb.Save();
             }
             catch (Exception)
             {
@@ -69,8 +78,8 @@ namespace ECommerce.BLL.Services
             try
             {
                 var item = this._mapper.Map<Product>(productDto);
-                this._db.Products.Add(item);
-                this._db.Save();
+                this._productDb.Add(item);
+                this._productDb.Save();
             }
             catch (Exception)
             {
@@ -85,8 +94,8 @@ namespace ECommerce.BLL.Services
             try
             {
                 var item = this._mapper.Map<Product>(productDto);
-                this._db.Products.Edit(item);
-                this._db.Save();
+                this._productDb.Edit(item);
+                this._productDb.Save();
             }
             catch (Exception)
             {
@@ -100,8 +109,8 @@ namespace ECommerce.BLL.Services
         {
             try
             {
-                this._db.Products.DeleteById(id);
-                this._db.Save();
+                this._productDb.DeleteById(id);
+                this._productDb.Save();
             }
             catch (Exception)
             {
@@ -113,22 +122,17 @@ namespace ECommerce.BLL.Services
 
         public CategoryDto GetCategory(int id)
         {
-            return this._mapper.Map<CategoryDto>(this._db.Categories.GetById(id));
+            return this._mapper.Map<CategoryDto>(this._categoryDb.GetById(id));
         }
 
         public ProductDto GetProduct(int id)
         {
-            return this._mapper.Map<ProductDto>(this._db.Products.GetById(id));
+            return this._mapper.Map<ProductDto>(this._productDb.GetById(id));
         }
 
         public OrderDto GetOrder(int id)
         {
-            return this._mapper.Map<OrderDto>(this._db.Orders.GetById(id));
-        }
-
-        public void Dispose(bool disposing)
-        {
-            this._db.Dispose();
+            return this._mapper.Map<OrderDto>(this._orderDb.GetById(id));
         }
     }
 }

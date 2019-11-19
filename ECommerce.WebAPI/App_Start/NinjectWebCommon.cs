@@ -34,12 +34,13 @@ namespace ECommerce.WebAPI
         private static IKernel CreateKernel()
         {
             var webApiNinjectModule = new WebApiNinjectModule();
-            var bbLNinjectModule = new BLLNinjectModule();
+            var bllNinjectModule = new BLLNinjectModule();
             var autoMapperNinjectModule = new AutoMapperNinjectModule();
 
-            INinjectModule[] modules = { webApiNinjectModule, bbLNinjectModule, autoMapperNinjectModule };
+            INinjectModule[] modules = { webApiNinjectModule, bllNinjectModule, autoMapperNinjectModule };
 
             var kernel = new StandardKernel(modules);
+            // kernel.Load("ECommerce.DLL.dll");
 
             try
             {

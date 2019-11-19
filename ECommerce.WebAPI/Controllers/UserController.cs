@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
-using ECommerce.WebAPI.Models;
 
 namespace ECommerce.WebAPI.Controllers
 {
@@ -72,18 +71,18 @@ namespace ECommerce.WebAPI.Controllers
             return this.Ok(cart);
         }
 
-        [HttpGet]
-        [Route("~/api/user/orderPanel/addOrder")]
-        public IHttpActionResult MakeOrder()
-        {
-            var order = this._user.MakeOrder(this._iCart);
-            if (order == null)
-            {
-                return this.NotFound();
-            }
+        //[HttpGet]
+        //[Route("~/api/user/orderPanel/addOrder")]
+        //public IHttpActionResult MakeOrder()
+        //{
+        //    var order = this._user.MakeOrder(this._iCart);
+        //    if (order == null)
+        //    {
+        //        return this.NotFound();
+        //    }
 
-            var orderView = this._mapper.Map<OrderView>(order);
-            return this.Ok(orderView);
-        }
+        //    var orderView = this._mapper.Map<OrderView>(order);
+        //    return this.Ok(orderView);
+        //}
     }
 }

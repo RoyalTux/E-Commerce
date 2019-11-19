@@ -3,7 +3,7 @@ using ECommerce.DLL.DataEntities;
 
 namespace ECommerce.DLL.Context
 {
-    internal class CartBuilder
+    public class CartBuilder
     {
         public static void BuildCart(DbModelBuilder modelBuilder)
         {
@@ -15,7 +15,15 @@ namespace ECommerce.DLL.Context
                 .IsRequired();
 
             modelBuilder.Entity<CartDataEntity>()
-                .HasMany(x => x.OrderDataEntities);
+                .Property(x => x.OverallPrice)
+                .IsRequired();
+
+            modelBuilder.Entity<CartDataEntity>()
+                .Property(x => x.Quantity)
+                .IsRequired();
+
+            modelBuilder.Entity<CartDataEntity>()
+                .HasMany(x => x.ProductDataEntities);
         }
     }
 }

@@ -6,13 +6,17 @@ namespace ECommerce.DLL.Extensibility.Entities
     {
         public Cart()
         {
-            this.Orders = new List<Order>();
+            this.Products = new List<Product>();
         }
 
         public int Id { get; set; }
 
         public int TrackingNumber { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public decimal OverallPrice { get; set; }
+
+        public int Quantity { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

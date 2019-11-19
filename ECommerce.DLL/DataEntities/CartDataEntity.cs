@@ -2,17 +2,21 @@
 
 namespace ECommerce.DLL.DataEntities
 {
-    internal class CartDataEntity
+    public class CartDataEntity
     {
         public CartDataEntity()
         {
-            this.OrderDataEntities = new List<OrderDataEntity>();
+            this.ProductDataEntities = new List<ProductDataEntity>();
         }
 
         public int Id { get; set; }
 
         public int TrackingNumber { get; set; }
 
-        public ICollection<OrderDataEntity> OrderDataEntities { get; set; }
+        public decimal OverallPrice { get; set; }
+
+        public int Quantity { get; set; }
+
+        public ICollection<ProductDataEntity> ProductDataEntities { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ECommerce.DLL.DataEntities
 {
-    internal class CategoryDataEntity
+    public class CategoryDataEntity
     {
         public CategoryDataEntity()
         {

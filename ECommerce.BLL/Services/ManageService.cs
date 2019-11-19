@@ -3,17 +3,20 @@ using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.BLL.Services
 {
     internal class ManageService : IManageService
     {
-        private readonly IShopService _db;
+        private readonly IRepositoryBase<Order> _orderDb;
         private readonly IMapper _mapper;
 
-        public ManageService(IShopService db, IMapper mapper)
+        public ManageService(
+            IRepositoryBase<Order> orderDb,
+            IMapper mapper)
         {
-            this._db = db;
+            this._orderDb = orderDb;
             this._mapper = mapper;
         }
 
@@ -22,8 +25,8 @@ namespace ECommerce.BLL.Services
             try
             {
                 var order = this._mapper.Map<Order>(orderDto);
-                this._db.Orders.Edit(order);
-                this._db.Save();
+                this._orderDb.Edit(order);
+                this._orderDb.Save();
             }
             catch (Exception)
             {
@@ -35,7 +38,7 @@ namespace ECommerce.BLL.Services
 
         public OrderDto GetOrder(int id)
         {
-            return this._mapper.Map<OrderDto>(this._db.Orders.GetById(id));
+            return this._mapper.Map<OrderDto>(this._orderDb.GetById(id));
         }
     }
 }

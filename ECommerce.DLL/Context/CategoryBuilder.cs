@@ -3,7 +3,7 @@ using ECommerce.DLL.DataEntities;
 
 namespace ECommerce.DLL.Context
 {
-    internal class CategoryBuilder
+    public class CategoryBuilder
     {
         public static void BuildCategory(DbModelBuilder modelBuilder)
         {

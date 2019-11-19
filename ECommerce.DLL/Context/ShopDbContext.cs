@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
-using ECommerce.DLL.Extensibility;
-using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ECommerce.DLL.Context
@@ -13,17 +12,17 @@ namespace ECommerce.DLL.Context
             this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public IDbSet<UserProfile> UserProfiles { get; set; }
+        public IDbSet<UserProfileDataEntity> UserProfiles { get; set; }
 
-        public IDbSet<Category> Categories { get; set; }
+        public IDbSet<CategoryDataEntity> Categories { get; set; }
 
-        public IDbSet<Product> Product { get; set; }
+        public IDbSet<ProductDataEntity> Product { get; set; }
 
-        public IDbSet<Order> Orders { get; set; }
+        public IDbSet<OrderDataEntity> Orders { get; set; }
 
-        public IDbSet<OrderLine> OrderLines { get; set; }
+        public IDbSet<OrderLineDataEntity> OrderLines { get; set; }
 
-        public IDbSet<Cart> Carts { get; set; }
+        public IDbSet<CartDataEntity> Carts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

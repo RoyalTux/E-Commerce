@@ -3,7 +3,7 @@ using ECommerce.DLL.DataEntities;
 
 namespace ECommerce.DLL.Context
 {
-    internal class UserProfileBuilder
+    public class UserProfileBuilder
     {
         public static void BuildUserProfile(DbModelBuilder modelBuilder)
         {

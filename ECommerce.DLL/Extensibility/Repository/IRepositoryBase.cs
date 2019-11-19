@@ -2,10 +2,12 @@
 
 namespace ECommerce.DLL.Extensibility.Repository
 {
-    public interface IBaseRepository<TDomainEntity>
+    public interface IRepositoryBase<TDomainEntity>
         where TDomainEntity : class
     {
         IEnumerable<TDomainEntity> GetAll();
+
+        TDomainEntity GetById(int id);
 
         void Add(TDomainEntity entity);
 
@@ -14,5 +16,7 @@ namespace ECommerce.DLL.Extensibility.Repository
         void DeleteById(int id);
 
         void Edit(TDomainEntity entity);
+
+        int Save();
     }
 }

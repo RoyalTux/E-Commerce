@@ -3,7 +3,7 @@ using ECommerce.DLL.DataEntities;
 
 namespace ECommerce.DLL.Context
 {
-    internal class OrderBuilder
+    public class OrderBuilder
     {
         public static void BuildOrder(DbModelBuilder modelBuilder)
         {
@@ -28,9 +28,6 @@ namespace ECommerce.DLL.Context
 
             modelBuilder.Entity<OrderDataEntity>()
                 .HasMany(x => x.OrderLines);
-
-            modelBuilder.Entity<OrderDataEntity>()
-                .HasRequired(x => x.CartDataEntity);
         }
     }
 }

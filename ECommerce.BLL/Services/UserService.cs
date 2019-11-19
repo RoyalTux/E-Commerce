@@ -3,18 +3,21 @@ using System.Linq;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
-using ECommerce.BLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.BLL.Services
 {
     public class UserService : IUserService
     {
-        private readonly IShopService _db;
+        private readonly IRepositoryBase<Product> _productDb;
         private readonly IMapper _mapper;
 
-        public UserService(IShopService db, IMapper mapper)
+        public UserService(
+            IRepositoryBase<Product> productDb,
+            IMapper mapper)
         {
-            this._db = db;
+            this._productDb = productDb;
             this._mapper = mapper;
         }
 
@@ -24,11 +27,11 @@ namespace ECommerce.BLL.Services
             {
                 if (product != null)
                 {
-                    lineCollection.Lines.Add(new ShoppingCartLine
-                    {
-                        Product = this._mapper.Map<ProductDto>(this._db.Products.GetById(product.Id)),
-                        Quantity = quantity,
-                    });
+                    //lineCollection.Products.Add(new Product
+                    //{
+                    //    Name = this._mapper.Map<ProductDto>(this._productDb.GetById(product.Id)),
+                    //    Quantity = quantity,
+                    //});
                 }
             }
             catch (Exception)
@@ -43,7 +46,7 @@ namespace ECommerce.BLL.Services
         {
             try
             {
-                lineCollection.Lines.RemoveAll(l => l.Product.Id == product.Id);
+                lineCollection.Products.RemoveAll(l => l.Id == product.Id);
             }
             catch (Exception)
             {
@@ -57,7 +60,7 @@ namespace ECommerce.BLL.Services
         {
             try
             {
-                lineCollection.Lines.Clear();
+                lineCollection.Products.Clear();
             }
             catch (Exception)
             {
@@ -67,31 +70,32 @@ namespace ECommerce.BLL.Services
             return true;
         }
 
-        public IShoppingCart ComposeCart(IShoppingCart lineCollection)
+        public CartDto ComposeCart(IShoppingCart lineCollection)
         {
-            decimal cartPrice = lineCollection.Lines.Sum(product => product.Product.Price);
+            decimal cartPrice = lineCollection.Products.Sum(product => product.Price);
 
-            var cart = new ShoppingCart
+            var cart = new CartDto
             {
-                Lines = lineCollection.Lines,
+                Products = lineCollection.Products,
                 OverallPrice = cartPrice,
+                Quantity = lineCollection.Quantity,
             };
 
             return cart;
         }
 
-        public OrderDto MakeOrder(IShoppingCart cart)
-        {
-            var products = cart.Lines.Select(product => product.Product).ToList();
-            var order = new OrderDto
-            {
-                Products = products,
-                Time = System.DateTime.Now,
-                Price = products.Sum(x => x.Price),
-                State = StateDto.InProcess,
-            };
+        //public OrderDto MakeOrder(Order cart)
+        //{
+        //    var products = cart.Products.Select(product => product.Product).ToList();
+        //    var order = new OrderDto
+        //    {
+        //        Products = products,
+        //        Time = System.DateTime.Now,
+        //        Price = products.Sum(x => x.Price),
+        //        State = StateDto.InProcess,
+        //    };
 
-            return order;
-        }
+        //    return order;
+        //}
     }
 }

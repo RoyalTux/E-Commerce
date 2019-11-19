@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ECommerce.DLL.DataEntities
 {
-    internal class OrderDataEntity
+    public class OrderDataEntity
     {
         public OrderDataEntity()
         {
@@ -20,8 +20,6 @@ namespace ECommerce.DLL.DataEntities
         public OrderStateDataEntity StateDataEntity { get; set; }
 
         public int? OrderLineId { get; set; }
-
-        public CartDataEntity CartDataEntity { get; set; }
 
         public List<ProductDataEntity> Products { get; set; }
 

@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using ECommerce.DLL.Context;
-using ECommerce.DLL.Extensibility.Entities;
+using ECommerce.DLL.DataEntities;
 
 // ReSharper disable CollectionNeverQueried.Local
 // ReSharper disable RedundantCommaInInitializer
 // ReSharper disable StringLiteralTypo
-namespace ECommerce.DLL.Extensibility
+namespace ECommerce.DLL
 {
     public class ShopDbInitializer : CreateDatabaseIfNotExists<ShopDbContext>
     {
-        public IList<Entities.UserProfile> SeedUserProfiles()
+        public IList<UserProfileDataEntity> SeedUserProfiles()
         {
-            IList<UserProfile> profiles = new List<UserProfile>();
+            IList<UserProfileDataEntity> profiles = new List<UserProfileDataEntity>();
 
-            profiles.Add(new UserProfile()
+            profiles.Add(new UserProfileDataEntity()
             {
                 Email = "admin@gmail.com",
                 UserName = "admin@gmail.com",
@@ -24,7 +24,7 @@ namespace ECommerce.DLL.Extensibility
                 Role = "admin",
             });
 
-            profiles.Add(new UserProfile()
+            profiles.Add(new UserProfileDataEntity()
             {
                 Email = "manager@gmail.com",
                 UserName = "manager@gmail.com",
@@ -34,7 +34,7 @@ namespace ECommerce.DLL.Extensibility
                 Role = "manager",
             });
 
-            profiles.Add(new UserProfile()
+            profiles.Add(new UserProfileDataEntity()
             {
                 Email = "user@gmail.com",
                 UserName = "user@gmail.com",
@@ -47,10 +47,10 @@ namespace ECommerce.DLL.Extensibility
             return profiles;
         }
 
-        public IList<Product> SeedProducts()
+        public IList<ProductDataEntity> SeedProducts()
         {
-            IList<Product> products = new List<Product>();
-            products.Add(new Product()
+            IList<ProductDataEntity> products = new List<ProductDataEntity>();
+            products.Add(new ProductDataEntity()
             {
                 Name = "DJ Mix Number 05",
                 Album = "Frankenthal (Pfalz) / Germany",
@@ -62,7 +62,7 @@ namespace ECommerce.DLL.Extensibility
                 TrackDuration = 2.5,
             });
 
-            products.Add(new Product()
+            products.Add(new ProductDataEntity()
             {
                 Name = "DJ Mix Number 06",
                 Album = "Frankenthal (Pfalz) / Germany",
@@ -74,7 +74,7 @@ namespace ECommerce.DLL.Extensibility
                 TrackDuration = 1.5,
             });
 
-            products.Add(new Product()
+            products.Add(new ProductDataEntity()
             {
                 Name = "DJ Mix Number 07",
                 Album = "Frankenthal (Pfalz) / Germany",

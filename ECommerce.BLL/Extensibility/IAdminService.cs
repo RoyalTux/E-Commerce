@@ -21,7 +21,5 @@ namespace ECommerce.BLL.Extensibility
         ProductDto GetProduct(int id);
 
         OrderDto GetOrder(int id);
-
-        void Dispose(bool disposing);
     }
 }

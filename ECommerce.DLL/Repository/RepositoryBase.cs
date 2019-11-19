@@ -2,25 +2,25 @@
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
-using ECommerce.DLL.Extensibility;
+using ECommerce.DLL.Context;
 using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.DLL.Repository
 {
-    internal abstract class BaseRepository<TDomainEntity, TDataEntity> : IBaseRepository<TDomainEntity>
+    internal abstract class RepositoryBase<TDomainEntity, TDataEntity> : IRepositoryBase<TDomainEntity>
         where TDomainEntity : class
         where TDataEntity : class
     {
         private readonly IShopDbContext _shopDbContext;
 
-        protected BaseRepository(IShopDbContext context, IMapper mapper)
+        protected RepositoryBase(IShopDbContext context, IMapper mapper)
         {
             this._shopDbContext = context;
-            this.Set = this._shopDbContext.Set<TDomainEntity>();
+            this.Set = this._shopDbContext.Set<TDataEntity>();
             this.Mapper = mapper;
         }
 
-        protected IDbSet<TDomainEntity> Set { get; }
+        protected IDbSet<TDataEntity> Set { get; }
 
         protected IMapper Mapper { get; }
 
@@ -29,19 +29,21 @@ namespace ECommerce.DLL.Repository
             return this.Mapper.Map<IEnumerable<TDomainEntity>>(this.Set.AsEnumerable());
         }
 
-        public virtual TDataEntity GetById(int id)
+        public virtual TDomainEntity GetById(int id)
         {
-            return this.Mapper.Map<TDataEntity>(this.Set.Find(id));
+            return this.Mapper.Map<TDomainEntity>(this.Set.Find(id));
         }
 
         public virtual void Add(TDomainEntity entity)
         {
-            this.Set.Add(entity);
+            var dataEntity = this.Mapper.Map<TDataEntity>(entity);
+            this.Set.Add(dataEntity);
         }
 
         public virtual void Delete(TDomainEntity entity)
         {
-            this.Set.Remove(entity);
+            var dataEntity = this.Mapper.Map<TDataEntity>(entity);
+            this.Set.Remove(dataEntity);
         }
 
         public virtual void DeleteById(int id)
@@ -54,5 +56,7 @@ namespace ECommerce.DLL.Repository
         {
             this._shopDbContext.Entry(entity).State = EntityState.Modified;
         }
+
+        public abstract int Save();
     }
 }
