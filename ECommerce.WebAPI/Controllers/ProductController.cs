@@ -15,10 +15,6 @@ namespace ECommerce.WebAPI.Controllers
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductController()
-        {
-        }
-
         public ProductController(IProductService productService, IMapper mapper)
         {
             this._productService = productService;

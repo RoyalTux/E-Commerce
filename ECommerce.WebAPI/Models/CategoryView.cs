@@ -10,12 +10,15 @@ namespace ECommerce.WebAPI.Models
             this.Products = new List<ProductView>();
         }
 
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
+
+        public int? ParentId { get; set; }
 
         [Required]
         [StringLength(256, MinimumLength = 5, ErrorMessage = "Invalid category name length")]
-        public string CategoryName { get; set; }
+        public string Name { get; set; }
 
         public ICollection<ProductView> Products { get; set; }
+
     }
 }

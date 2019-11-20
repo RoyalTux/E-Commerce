@@ -11,7 +11,7 @@ namespace ECommerce.WebAPI.Models
             this.Products = new List<ProductView>();
         }
 
-        public int OrderId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public DateTime Time { get; set; }
@@ -24,6 +24,11 @@ namespace ECommerce.WebAPI.Models
         [Required]
         public StateView State { get; set; }
 
+        [Required]
+        public int? OrderLineId { get; set; }
+
         public ICollection<ProductView> Products { get; set; }
+
+        public ICollection<OrderLineView> OrderLines { get; set; }
     }
 }

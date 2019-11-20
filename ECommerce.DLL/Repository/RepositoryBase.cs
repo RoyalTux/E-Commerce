@@ -13,7 +13,7 @@ namespace ECommerce.DLL.Repository
     {
         private readonly IShopDbContext _shopDbContext;
 
-        protected RepositoryBase(IShopDbContext context, IMapper mapper)
+        public RepositoryBase(IShopDbContext context, IMapper mapper)
         {
             this._shopDbContext = context;
             this.Set = this._shopDbContext.Set<TDataEntity>();

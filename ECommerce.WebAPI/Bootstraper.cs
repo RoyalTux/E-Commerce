@@ -7,6 +7,13 @@ namespace ECommerce.WebAPI
 {
     public static class Bootstraper
     {
+        private static IKernel _kernel;
+        public static IKernel Kernel
+        {
+            get => Bootstraper._kernel;
+            set => _kernel = value;
+        }
+
         public static void Start(IKernel kernel)
         {
             kernel.GetAll<IInitializer>()
@@ -14,4 +21,5 @@ namespace ECommerce.WebAPI
                 .ForEach(initializer => initializer.Init());
         }
     }
+
 }

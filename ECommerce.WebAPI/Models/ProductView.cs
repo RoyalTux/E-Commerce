@@ -10,13 +10,21 @@ namespace ECommerce.WebAPI.Models
             this.Orders = new List<OrderView>();
         }
 
-        public int ProductId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(256, MinimumLength = 5, ErrorMessage = "Invalid product name length")]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
-        public string ProductPhotoPath { get; set; }
+        public string PhotoPath { get; set; }
+
+        public string Album { get; set; }
+
+        [Required]
+        [StringLength(256, MinimumLength = 5, ErrorMessage = "Invalid product name length")]
+        public string Artist { get; set; }
+
+        public double TrackDuration { get; set; }
 
         [Required]
         [StringLength(256, MinimumLength = 30, ErrorMessage = "Invalid product description length")]
