@@ -7,17 +7,13 @@ namespace ECommerce.BLL.Extensibility.Dto
     {
         public CartDto()
         {
-            this.Products = new List<Product>();
+            this.CartLines = new List<CartLine>();
         }
 
         public int Id { get; set; }
 
-        public int TrackingNumber { get; set; }
+        public ICollection<CartLine> CartLines { get; set; }
 
-        public decimal OverallPrice { get; set; }
-
-        public int Quantity { get; set; }
-
-        public ICollection<Product> Products { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

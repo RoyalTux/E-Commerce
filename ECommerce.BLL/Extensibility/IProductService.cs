@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ECommerce.BLL.Extensibility.Dto;
-using ECommerce.BLL.Extensibility.Infrastructure;
 
 namespace ECommerce.BLL.Extensibility
 {
@@ -12,12 +11,8 @@ namespace ECommerce.BLL.Extensibility
 
         IEnumerable<ProductDto> GetProductsWithPagination(int page, int pageSize);
 
-        IEnumerable<ProductDto> SortBy(BLLSortCriteria sortParam);
+        IEnumerable<ProductDto> SearchProduct(string request);
 
-        IEnumerable<ProductDto> SortByDescending(BLLSortCriteria sortParam);
-
-        IEnumerable<ProductDto> Search(string request);
-
-        IEnumerable<ProductDto> FilterByCategory(int categoryId);
+        IEnumerable<ProductDto> FilterProductByCategory(int categoryId);
     }
 }

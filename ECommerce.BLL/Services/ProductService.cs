@@ -3,7 +3,6 @@ using System.Linq;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
-using ECommerce.BLL.Extensibility.Infrastructure;
 using ECommerce.DLL.Extensibility.Entities;
 using ECommerce.DLL.Extensibility.Repository;
 
@@ -11,7 +10,7 @@ using ECommerce.DLL.Extensibility.Repository;
 // ReSharper disable CompareOfFloatsByEqualityOperator
 namespace ECommerce.BLL.Services
 {
-    internal class ProductService : IProductService
+    public class ProductService : IProductService
     {
         private readonly IRepositoryBase<Product> _productDb;
         private readonly IMapper _mapper;
@@ -44,56 +43,19 @@ namespace ECommerce.BLL.Services
             return this._mapper.Map<IEnumerable<ProductDto>>(products);
         }
 
-        public IEnumerable<ProductDto> Search(string request)
+        public IEnumerable<ProductDto> SearchProduct(string request) //
         {
             var allProducts = this.GetAllProducts();
 
             return allProducts.Where(product => product.Name.ToLower().Contains(request.ToLower()));
         }
 
-        public IEnumerable<ProductDto> SortBy(BLLSortCriteria sortParam)
-        {
-            var allProducts = this.GetAllProducts();
-
-            IEnumerable<ProductDto> res = sortParam == BLLSortCriteria.Name
-                ? allProducts.OrderBy(x => x.Name)
-                : allProducts.OrderBy(x => x.Price);
-
-            return res;
-        }
-
-        public IEnumerable<ProductDto> SortByDescending(BLLSortCriteria sortParam)
-        {
-            var allProducts = this.GetAllProducts();
-
-            IEnumerable<ProductDto> res = sortParam == BLLSortCriteria.Name
-                ? allProducts.OrderByDescending(x => x.Name)
-                : allProducts.OrderByDescending(x => x.Price);
-
-            return res;
-        }
-
-        public IEnumerable<ProductDto> FilterByCategory(int categoryId)
+        public IEnumerable<ProductDto> FilterProductByCategory(int categoryId)
         {
             var allProducts = this._productDb.GetAll().Where(product => product.Id == categoryId);
             var products = this._mapper.Map<IEnumerable<ProductDto>>(allProducts);
 
             return products;
-        }
-
-        private static IEnumerable<ProductDto> FilterByPrice(IEnumerable<ProductDto> products, int minPrice, int maxPrice)
-        {
-            return products.Where(product => product.Price >= minPrice && product.Price <= maxPrice);
-        }
-
-        private static int GetDefaultMinPrice(IEnumerable<ProductDto> products)
-        {
-            return (int)products.Min(x => x.Price);
-        }
-
-        private static int GetDefaultMaxPrice(IEnumerable<ProductDto> products)
-        {
-            return (int)products.Max(x => x.Price);
         }
     }
 }

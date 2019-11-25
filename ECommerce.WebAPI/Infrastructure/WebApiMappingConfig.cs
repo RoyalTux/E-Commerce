@@ -14,14 +14,16 @@ namespace ECommerce.WebAPI.Infrastructure
             this.CreateMap<ProductView, ProductDto>().ReverseMap().MaxDepth(2);
 
             this.CreateMap<OrderView, OrderDto>()
-                .ForMember(dest => dest.OrderLines, opt => opt.Ignore());
+                .ForMember(dest => dest.OrderLines, opt => opt.Ignore())
+                .ForMember(dest => dest.UserProfile, opt => opt.Ignore());
 
             this.CreateMap<OrderLineView, OrderLineDto>()
-                .ForMember(dest => dest.Order, opt => opt.Ignore());
+                .ForMember(dest => dest.Order, opt => opt.Ignore())
+                .ForMember(dest => dest.Product, opt => opt.Ignore());
+
+            this.CreateMap<UserProfileView, UserProfileDto>();
 
             this.CreateMap<FilterCriterias, WebApiFilterCriteria>().ReverseMap();
-
-            this.CreateMap<StateView, StateDto>().ReverseMap();
         }
     }
 }

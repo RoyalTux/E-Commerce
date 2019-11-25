@@ -6,11 +6,6 @@ namespace ECommerce.WebAPI.Models
 {
     public class OrderView
     {
-        public OrderView()
-        {
-            this.Products = new List<ProductView>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -21,14 +16,10 @@ namespace ECommerce.WebAPI.Models
         [Required]
         public double Price { get; set; }
 
-        [Required]
-        public StateView State { get; set; }
-
-        [Required]
-        public int? OrderLineId { get; set; }
-
-        public ICollection<ProductView> Products { get; set; }
+        public string Name { get; set; }
 
         public ICollection<OrderLineView> OrderLines { get; set; }
+
+        public UserProfileView UserProfile { get; set; }
     }
 }

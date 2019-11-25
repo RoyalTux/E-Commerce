@@ -11,19 +11,10 @@ namespace ECommerce.DLL.Context
                 .HasKey(x => x.Id);
 
             modelBuilder.Entity<CartDataEntity>()
-                .Property(x => x.TrackingNumber)
-                .IsRequired();
+                .HasMany(x => x.CartLineDataEntities);
 
             modelBuilder.Entity<CartDataEntity>()
-                .Property(x => x.OverallPrice)
-                .IsRequired();
-
-            modelBuilder.Entity<CartDataEntity>()
-                .Property(x => x.Quantity)
-                .IsRequired();
-
-            modelBuilder.Entity<CartDataEntity>()
-                .HasMany(x => x.ProductDataEntities);
+                .HasRequired(x => x.UserProfile);
         }
     }
 }

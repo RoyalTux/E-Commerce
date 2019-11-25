@@ -17,12 +17,8 @@ namespace ECommerce.BLL.Extensibility.Dto
 
         public decimal Price { get; set; }
 
-        public StateDto State { get; set; }
-
-        public int? OrderLineId { get; set; }
-
-        public List<ProductDto> Products { get; set; }
-
         public ICollection<OrderLine> OrderLines { get; set; }
+
+        public UserProfile UserProfile { get; set; }
     }
 }

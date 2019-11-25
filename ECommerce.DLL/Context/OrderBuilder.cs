@@ -16,15 +16,11 @@ namespace ECommerce.DLL.Context
                 .IsRequired();
 
             modelBuilder.Entity<OrderDataEntity>()
-                .Property(x => x.StateDataEntity)
-                .IsRequired();
-
-            modelBuilder.Entity<OrderDataEntity>()
                 .Property(x => x.Time)
                 .IsRequired();
 
             modelBuilder.Entity<OrderDataEntity>()
-                .HasMany(p => p.Products);
+                .HasRequired(x => x.UserProfile);
 
             modelBuilder.Entity<OrderDataEntity>()
                 .HasMany(x => x.OrderLines);

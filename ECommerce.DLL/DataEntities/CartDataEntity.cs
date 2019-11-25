@@ -6,17 +6,13 @@ namespace ECommerce.DLL.DataEntities
     {
         public CartDataEntity()
         {
-            this.ProductDataEntities = new List<ProductDataEntity>();
+            this.CartLineDataEntities = new List<CartLineDataEntity>();
         }
 
         public int Id { get; set; }
 
-        public int TrackingNumber { get; set; }
+        public ICollection<CartLineDataEntity> CartLineDataEntities { get; set; }
 
-        public decimal OverallPrice { get; set; }
-
-        public int Quantity { get; set; }
-
-        public ICollection<ProductDataEntity> ProductDataEntities { get; set; }
+        public UserProfileDataEntity UserProfile { get; set; }
     }
 }

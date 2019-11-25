@@ -20,6 +20,8 @@
 
         public double TrackDuration { get; set; }
 
+        public ProductDataEntity ProductDataEntity { get; set; }
+
         public virtual OrderDataEntity OrderDataEntity { get; set; }
     }
 }

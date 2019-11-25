@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web.Http;
 using AutoMapper;
 using ECommerce.BLL.Extensibility;
-using ECommerce.BLL.Extensibility.Infrastructure;
 using ECommerce.WebAPI.Models;
 
 // ReSharper disable PossibleMultipleEnumeration
@@ -80,7 +79,7 @@ namespace ECommerce.WebAPI.Controllers
                 return this.NotFound();
             }
 
-            var product = this._mapper.Map<IEnumerable<ProductView>>(products);
+            var product = this._mapper.Map<IEnumerable<ProductView>>(products).ToList();
 
             return this.Ok(product);
         }
@@ -89,7 +88,7 @@ namespace ECommerce.WebAPI.Controllers
         [Route("search")]
         public IHttpActionResult Search([FromUri]string request)
         {
-            var searchProducts = this._productService.Search(request);
+            var searchProducts = this._productService.SearchProduct(request);
 
             if (!searchProducts.Any())
             {
@@ -102,40 +101,10 @@ namespace ECommerce.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("sortBy/{sortCriteria}")]
-        public IHttpActionResult SortBy(SortCriteriaView sortCriteria = SortCriteriaView.Name)
-        {
-            var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._productService.SortBy(criteria));
-
-            if (!sortedProducts.Any())
-            {
-                return this.BadRequest();
-            }
-
-            return this.Ok(sortedProducts);
-        }
-
-        [HttpGet]
-        [Route("sortByDescending/{sortCriteria}")]
-        public IHttpActionResult SortByDescending(SortCriteriaView sortCriteria = SortCriteriaView.Name)
-        {
-            var criteria = this._mapper.Map<BLLSortCriteria>(sortCriteria);
-            var sortedProducts = this._mapper.Map<IEnumerable<ProductView>>(this._productService.SortByDescending(criteria));
-
-            if (!sortedProducts.Any())
-            {
-                return this.BadRequest();
-            }
-
-            return this.Ok(sortedProducts);
-        }
-
-        [HttpGet]
         [Route("filterByCategory/{id}")]
         public IHttpActionResult FilterByCategory(int id)
         {
-            var products = this._productService.FilterByCategory(id);
+            var products = this._productService.FilterProductByCategory(id);
             var filterProducts = this._mapper.Map<IEnumerable<ProductView>>(products);
 
             if (!filterProducts.Any())

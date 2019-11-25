@@ -20,7 +20,12 @@ namespace ECommerce.DLL.Infrastructure
             this.Bind<IShopDbContext>().To<ShopDbContext>().InRequestScope();
             this.Bind<IInitializer>().To<DatabaseSampleDataInitializer>();
             this.Bind<IRepositoryBase<Product>>().To<RepositoryBase<Product, ProductDataEntity>>();
-            //this.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<,>));
+            this.Bind<IRepositoryBase<Cart>>().To<RepositoryBase<Cart, CartDataEntity>>();
+            this.Bind<IRepositoryBase<CartLine>>().To<RepositoryBase<CartLine, CartLineDataEntity>>();
+            this.Bind<IRepositoryBase<Category>>().To<RepositoryBase<Category, CategoryDataEntity>>();
+            this.Bind<IRepositoryBase<Order>>().To<RepositoryBase<Order, OrderDataEntity>>();
+            this.Bind<IRepositoryBase<OrderLine>>().To<RepositoryBase<OrderLine, OrderLineDataEntity>>();
+            this.Bind<IRepositoryBase<UserProfile>>().To<RepositoryBase<UserProfile, UserProfileDataEntity>>();
         }
     }
 }

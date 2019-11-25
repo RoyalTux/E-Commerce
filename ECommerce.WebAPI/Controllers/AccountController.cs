@@ -29,7 +29,7 @@ namespace ECommerce.WebAPI.Controllers
                 return this.BadRequest();
             }
 
-            var userDto = new UserDto { Email = model.Email, Password = model.Password };
+            var userDto = new UserProfileDto { Email = model.Email, Password = model.Password };
             var claim = this.AccountService.Authenticate(userDto);
             if (claim == null)
             {
@@ -74,7 +74,7 @@ namespace ECommerce.WebAPI.Controllers
                 return this.BadRequest();
             }
 
-            var userDto = new UserDto
+            var userDto = new UserProfileDto
             {
                 Email = model.Email,
                 Password = model.Password,

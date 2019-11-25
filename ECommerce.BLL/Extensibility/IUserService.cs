@@ -1,16 +1,12 @@
-﻿using ECommerce.BLL.Extensibility.Dto;
-
-namespace ECommerce.BLL.Extensibility
+﻿namespace ECommerce.BLL.Extensibility
 {
     public interface IUserService
     {
-        bool AddProduct(ProductDto product, int quantity, IShoppingCart lineCollection);
+        // bool AddProduct(ProductDto product, int quantity, IShoppingCartService lineCollection);
 
-        bool RemoveProduct(ProductDto product, IShoppingCart lineCollection);
+        // bool RemoveProduct(ProductDto product, IShoppingCartService lineCollection);
 
-        bool Clear(IShoppingCart lineCollection);
-
-        CartDto ComposeCart(IShoppingCart lineCollection);
+        //CartDto ComposeCart(IShoppingCartService lineCollection);
 
         // OrderDto MakeOrder(IShoppingCart cart);
     }

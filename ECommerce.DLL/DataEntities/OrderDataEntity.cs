@@ -7,7 +7,6 @@ namespace ECommerce.DLL.DataEntities
     {
         public OrderDataEntity()
         {
-            this.Products = new List<ProductDataEntity>();
             this.OrderLines = new List<OrderLineDataEntity>();
         }
 
@@ -17,12 +16,8 @@ namespace ECommerce.DLL.DataEntities
 
         public decimal Price { get; set; }
 
-        public OrderStateDataEntity StateDataEntity { get; set; }
-
-        public int? OrderLineId { get; set; }
-
-        public List<ProductDataEntity> Products { get; set; }
-
         public ICollection<OrderLineDataEntity> OrderLines { get; set; }
+
+        public UserProfileDataEntity UserProfile { get; set; }
     }
 }

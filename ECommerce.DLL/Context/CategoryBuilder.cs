@@ -12,7 +12,7 @@ namespace ECommerce.DLL.Context
 
             modelBuilder.Entity<CategoryDataEntity>()
                 .HasMany(x => x.SubCategoryDataEntities)
-                .WithRequired(x => x.ParentCategoryDataEntity)
+                .WithOptional(x => x.ParentCategoryDataEntity)
                 .HasForeignKey(x => x.ParentId);
 
             modelBuilder.Entity<CategoryDataEntity>()

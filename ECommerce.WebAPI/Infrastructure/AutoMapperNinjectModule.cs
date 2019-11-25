@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ECommerce.BLL.Infrastructure;
 using Ninject.Modules;
 
 namespace ECommerce.WebAPI.Infrastructure
@@ -17,6 +18,8 @@ namespace ECommerce.WebAPI.Infrastructure
                 config.ConstructServicesUsing(type => context.Kernel.GetType());
 
                 config.AddProfile(new WebApiMappingConfig());
+                config.AddProfile(new BLLAutomapperProfile());
+                config.AddProfiles("ECommerce.DLL");
             });
 
             Mapper.AssertConfigurationIsValid();

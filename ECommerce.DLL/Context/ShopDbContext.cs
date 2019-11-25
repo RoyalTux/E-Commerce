@@ -32,6 +32,7 @@ namespace ECommerce.DLL.Context
             CartBuilder.BuildCart(modelBuilder);
             ProductBuilder.BuildProduct(modelBuilder);
             UserProfileBuilder.BuildUserProfile(modelBuilder);
+            CartLineBuilder.BuildCartLine(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

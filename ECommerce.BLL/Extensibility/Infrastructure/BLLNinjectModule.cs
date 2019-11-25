@@ -8,6 +8,8 @@ namespace ECommerce.BLL.Extensibility.Infrastructure
     {
         public override void Load()
         {
+            this.Bind<IAdminService>().To<AdminService>().InSingletonScope();
+
             this.Bind<IUserService>().To<UserService>().InSingletonScope();
 
             this.Bind<IManageService>().To<ManageService>();

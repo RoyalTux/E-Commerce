@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.DLL.Extensibility.Entities;
@@ -7,7 +6,7 @@ using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.BLL.Services
 {
-    internal class ManageService : IManageService
+    public class ManageService : IManageService
     {
         private readonly IRepositoryBase<Order> _orderDb;
         private readonly IMapper _mapper;
@@ -22,15 +21,8 @@ namespace ECommerce.BLL.Services
 
         public bool UpdateOrder(OrderDto orderDto)
         {
-            try
-            {
-                var order = this._mapper.Map<Order>(orderDto);
-                this._orderDb.Edit(order);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var order = this._mapper.Map<Order>(orderDto);
+            this._orderDb.Edit(order);
 
             return true;
         }

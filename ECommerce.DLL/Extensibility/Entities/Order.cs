@@ -7,7 +7,6 @@ namespace ECommerce.DLL.Extensibility.Entities
     {
         public Order()
         {
-            this.Products = new List<Product>();
             this.OrderLines = new List<OrderLine>();
         }
 
@@ -17,12 +16,8 @@ namespace ECommerce.DLL.Extensibility.Entities
 
         public decimal Price { get; set; }
 
-        public OrderState State { get; set; }
-
-        public int? OrderLineId { get; set; }
-
-        public List<Product> Products { get; set; }
-
         public ICollection<OrderLine> OrderLines { get; set; }
+
+        public UserProfile UserProfile { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace ECommerce.DLL.Repository
 
         public virtual IEnumerable<TDomainEntity> GetAll()
         {
-            return this.Mapper.Map<IEnumerable<TDomainEntity>>(this.Set.AsEnumerable());
+            return this.Mapper.Map<IEnumerable<TDomainEntity>>(this.Set.AsEnumerable().ToList());
         }
 
         public virtual TDomainEntity GetById(int id)

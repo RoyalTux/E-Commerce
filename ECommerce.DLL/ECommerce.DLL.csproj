@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="Context\CartBuilder.cs" />
+    <Compile Include="Context\CartLineBuilder.cs" />
     <Compile Include="Context\CategoryBuilder.cs" />
     <Compile Include="Context\OrderBuilder.cs" />
     <Compile Include="Context\OrderLineBuilder.cs" />
@@ -97,46 +98,35 @@
     <Compile Include="Context\UserProfileBuilder.cs" />
     <Compile Include="Context\ShopDbContext.cs" />
     <Compile Include="DataEntities\CartDataEntity.cs" />
+    <Compile Include="DataEntities\CartLineDataEntity.cs" />
     <Compile Include="DataEntities\OrderLineDataEntity.cs" />
-    <Compile Include="DataEntities\OrderStateDataEntity.cs" />
     <Compile Include="DatabaseSampleDataInitializer.cs" />
+    <Compile Include="Infrastructure\DLLAutomapperProfile.cs" />
     <Compile Include="Extensibility\Entities\Cart.cs" />
+    <Compile Include="Extensibility\Entities\CartLine.cs" />
     <Compile Include="Infrastructure\DLLNinjectModule.cs" />
     <Compile Include="DataEntities\CategoryDataEntity.cs" />
     <Compile Include="DataEntities\ProductDataEntity.cs" />
     <Compile Include="DataEntities\OrderDataEntity.cs" />
     <Compile Include="DataEntities\UserProfileDataEntity.cs" />
     <Compile Include="Extensibility\Entities\OrderLine.cs" />
-    <Compile Include="Extensibility\Entities\OrderState.cs" />
     <Compile Include="Extensibility\Entities\UserProfile.cs" />
     <Compile Include="Extensibility\Entities\Category.cs" />
     <Compile Include="Extensibility\Entities\Product.cs" />
     <Compile Include="Extensibility\Entities\Order.cs" />
     <Compile Include="Context\IShopDbContext.cs" />
     <Compile Include="Extensibility\Repository\IRepositoryBase.cs" />
-    <Compile Include="Migrations\201911120850013_initial.cs" />
-    <Compile Include="Migrations\201911120850013_initial.designer.cs">
-      <DependentUpon>201911120850013_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201911201110414_initial.cs" />
+    <Compile Include="Migrations\201911201110414_initial.Designer.cs">
+      <DependentUpon>201911201110414_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911121021550_added-orderLines.cs" />
-    <Compile Include="Migrations\201911121021550_added-orderLines.designer.cs">
-      <DependentUpon>201911121021550_added-orderLines.cs</DependentUpon>
+    <Compile Include="Migrations\201911221338477_added-cartLine.cs" />
+    <Compile Include="Migrations\201911221338477_added-cartLine.Designer.cs">
+      <DependentUpon>201911221338477_added-cartLine.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911150014046_Added-SubCategories.cs" />
-    <Compile Include="Migrations\201911150014046_Added-SubCategories.designer.cs">
-      <DependentUpon>201911150014046_Added-SubCategories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911150033473_Added-Cart.cs" />
-    <Compile Include="Migrations\201911150033473_Added-Cart.designer.cs">
-      <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911150917532_added-tracking-number-to-cart.cs" />
-    <Compile Include="Migrations\201911150917532_added-tracking-number-to-cart.designer.cs">
-      <DependentUpon>201911150917532_added-tracking-number-to-cart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911191554323_changed-cart-features.cs" />
-    <Compile Include="Migrations\201911191554323_changed-cart-features.Designer.cs">
-      <DependentUpon>201911191554323_changed-cart-features.cs</DependentUpon>
+    <Compile Include="Migrations\201911221621254_fix-category-parent-id.cs" />
+    <Compile Include="Migrations\201911221621254_fix-category-parent-id.Designer.cs">
+      <DependentUpon>201911221621254_fix-category-parent-id.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,30 +138,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911120850013_initial.resx">
-      <DependentUpon>201911120850013_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911121021550_added-orderLines.resx">
-      <DependentUpon>201911121021550_added-orderLines.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911150014046_Added-SubCategories.resx">
-      <DependentUpon>201911150014046_Added-SubCategories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911150033473_Added-Cart.resx">
-      <DependentUpon>201911150033473_Added-Cart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911150917532_added-tracking-number-to-cart.resx">
-      <DependentUpon>201911150917532_added-tracking-number-to-cart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911191554323_changed-cart-features.resx">
-      <DependentUpon>201911191554323_changed-cart-features.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ECommerce.Core\ECommerce.Core.csproj">
       <Project>{b579d992-5605-489b-8240-fd3bbc910595}</Project>
       <Name>ECommerce.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911201110414_initial.resx">
+      <DependentUpon>201911201110414_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221338477_added-cartLine.resx">
+      <DependentUpon>201911221338477_added-cartLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221621254_fix-category-parent-id.resx">
+      <DependentUpon>201911221621254_fix-category-parent-id.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

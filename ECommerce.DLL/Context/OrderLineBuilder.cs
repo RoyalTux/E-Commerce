@@ -50,6 +50,9 @@ namespace ECommerce.DLL.Context
 
             modelBuilder.Entity<OrderLineDataEntity>()
                 .HasRequired(x => x.OrderDataEntity);
+
+            modelBuilder.Entity<OrderLineDataEntity>()
+                .HasRequired(x => x.ProductDataEntity);
         }
     }
 }

@@ -70,21 +70,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensibility\Dto\CartDto.cs" />
+    <Compile Include="Extensibility\Dto\CartLineDto.cs" />
     <Compile Include="Extensibility\Dto\CategoryDto.cs" />
     <Compile Include="Extensibility\Dto\OrderLineDto.cs" />
     <Compile Include="Extensibility\Dto\ProductDto.cs" />
     <Compile Include="Extensibility\Dto\OrderDto.cs" />
-    <Compile Include="Extensibility\Dto\StateDto.cs" />
-    <Compile Include="Extensibility\Dto\UserDto.cs" />
+    <Compile Include="Extensibility\Dto\UserProfileDto.cs" />
     <Compile Include="Extensibility\Infrastructure\BLLNinjectModule.cs" />
+    <Compile Include="Extensibility\Infrastructure\BLLAutomapperProfile.cs" />
     <Compile Include="Extensibility\Infrastructure\OperationDetailsBLL.cs" />
     <Compile Include="Extensibility\IAccountService.cs" />
     <Compile Include="Extensibility\IAdminService.cs" />
     <Compile Include="Extensibility\IManageService.cs" />
     <Compile Include="Extensibility\IProductService.cs" />
-    <Compile Include="Extensibility\IShoppingCart.cs" />
+    <Compile Include="Extensibility\IShoppingCartService.cs" />
     <Compile Include="Extensibility\IUserService.cs" />
-    <Compile Include="Extensibility\Infrastructure\BLLSortCriteria.cs" />
     <Compile Include="Extensibility\Infrastructure\FilterCriterias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminService.cs" />

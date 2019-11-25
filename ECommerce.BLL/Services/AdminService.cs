@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using ECommerce.BLL.Extensibility;
 using ECommerce.BLL.Extensibility.Dto;
 using ECommerce.DLL.Extensibility.Entities;
@@ -7,7 +6,7 @@ using ECommerce.DLL.Extensibility.Repository;
 
 namespace ECommerce.BLL.Services
 {
-    internal class AdminService : IAdminService
+    public class AdminService : IAdminService
     {
         private readonly IRepositoryBase<Category> _categoryDb;
         private readonly IRepositoryBase<Order> _orderDb;
@@ -28,88 +27,46 @@ namespace ECommerce.BLL.Services
 
         public bool AddCategory(CategoryDto categoryDto)
         {
-            try
-            {
-                var category = this._mapper.Map<Category>(categoryDto);
-                this._categoryDb.Add(category);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var category = this._mapper.Map<Category>(categoryDto);
+            this._categoryDb.Add(category);
 
             return true;
         }
 
         public bool UpdateCategory(CategoryDto categoryDto)
         {
-            try
-            {
-                var category = this._mapper.Map<Category>(categoryDto);
-                this._categoryDb.Edit(category);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var category = this._mapper.Map<Category>(categoryDto);
+            this._categoryDb.Edit(category);
 
             return true;
         }
 
         public bool RemoveCategory(int id)
         {
-            try
-            {
-                this._categoryDb.DeleteById(id);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            this._categoryDb.DeleteById(id);
 
             return true;
         }
 
         public bool AddProduct(ProductDto productDto)
         {
-            try
-            {
-                var item = this._mapper.Map<Product>(productDto);
-                this._productDb.Add(item);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var item = this._mapper.Map<Product>(productDto);
+            this._productDb.Add(item);
 
             return true;
         }
 
         public bool UpdateProduct(ProductDto productDto)
         {
-            try
-            {
-                var item = this._mapper.Map<Product>(productDto);
-                this._productDb.Edit(item);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var item = this._mapper.Map<Product>(productDto);
+            this._productDb.Edit(item);
 
             return true;
         }
 
         public bool RemoveProduct(int id)
         {
-            try
-            {
-                this._productDb.DeleteById(id);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            this._productDb.DeleteById(id);
 
             return true;
         }
