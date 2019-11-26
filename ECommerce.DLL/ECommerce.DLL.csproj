@@ -89,13 +89,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
-    <Compile Include="Context\CartBuilder.cs" />
-    <Compile Include="Context\CartLineBuilder.cs" />
-    <Compile Include="Context\CategoryBuilder.cs" />
-    <Compile Include="Context\OrderBuilder.cs" />
-    <Compile Include="Context\OrderLineBuilder.cs" />
-    <Compile Include="Context\ProductBuilder.cs" />
-    <Compile Include="Context\UserProfileBuilder.cs" />
+    <Compile Include="Migrations\201911261030564_removed-identity.cs" />
+    <Compile Include="Migrations\201911261030564_removed-identity.Designer.cs">
+      <DependentUpon>201911261030564_removed-identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911261100442_table-names-changed.cs" />
+    <Compile Include="Migrations\201911261100442_table-names-changed.Designer.cs">
+      <DependentUpon>201911261100442_table-names-changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBuilders\CartBuilder.cs" />
+    <Compile Include="ModelBuilders\CartLineBuilder.cs" />
+    <Compile Include="ModelBuilders\CategoryBuilder.cs" />
+    <Compile Include="ModelBuilders\OrderBuilder.cs" />
+    <Compile Include="ModelBuilders\OrderLineBuilder.cs" />
+    <Compile Include="ModelBuilders\ProductBuilder.cs" />
+    <Compile Include="ModelBuilders\UserProfileBuilder.cs" />
     <Compile Include="Context\ShopDbContext.cs" />
     <Compile Include="DataEntities\CartDataEntity.cs" />
     <Compile Include="DataEntities\CartLineDataEntity.cs" />
@@ -153,6 +161,13 @@
     <EmbeddedResource Include="Migrations\201911221621254_fix-category-parent-id.resx">
       <DependentUpon>201911221621254_fix-category-parent-id.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911261030564_removed-identity.resx">
+      <DependentUpon>201911261030564_removed-identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911261100442_table-names-changed.resx">
+      <DependentUpon>201911261100442_table-names-changed.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

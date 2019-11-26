@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using ECommerce.DLL.DataEntities;
-using Microsoft.AspNet.Identity.EntityFramework;
+using ECommerce.DLL.ModelBuilders;
 
 namespace ECommerce.DLL.Context
 {
-    public class ShopDbContext : IdentityDbContext, IShopDbContext
+    public class ShopDbContext : DbContext, IShopDbContext
     {
         public ShopDbContext()
             : base("name=E-CommerceDbContext")
